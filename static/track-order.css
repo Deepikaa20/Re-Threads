@@ -1,0 +1,514 @@
+/* Track Orders Page Styles */
+.track-orders {
+    padding: 60px 0 40px;
+    background-color: var(--light-color);
+    min-height: calc(100vh - 70px);
+}
+
+.orders-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.orders-header h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+/* Brand Profile Menu Styles */
+.brand-profile-menu {
+    position: relative;
+    margin-left: 15px;
+}
+
+.brand-profile-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-profile-btn:hover {
+    background-color: rgba(93, 78, 109, 0.1);
+    color: var(--accent-color);
+}
+
+.brand-profile-dropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    min-width: 200px;
+    z-index: 1000;
+    display: none;
+    padding: 8px 0;
+}
+
+.brand-profile-menu:hover .brand-profile-dropdown,
+.brand-profile-menu:focus-within .brand-profile-dropdown {
+    display: block;
+}
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item i {
+    width: 24px;
+    margin-right: 10px;
+    color: var(--secondary-color);
+}
+
+.dropdown-item:hover {
+    background-color: rgba(93, 78, 109, 0.05);
+    color: var(--primary-color);
+}
+
+.dropdown-item:hover i {
+    color: var(--accent-color);
+}
+/* Keep existing dropdown item styles from student profile */
+
+.orders-header .subtitle {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+
+.search-filter {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.search-box {
+    position: relative;
+    min-width: 300px;
+}
+
+.search-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-color);
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(249, 168, 139, 0.2);
+}
+
+.status-filter {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background-color: white;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.status-filter:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.orders-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    gap: 25px;
+}
+
+.order-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+    padding: 25px;
+    transition: var(--transition);
+    border-left: 4px solid var(--border-color);
+}
+
+.order-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.order-card.status-processing {
+    border-left-color: #FFA500;
+}
+
+.order-card.status-shipped {
+    border-left-color: #5d4e6d;
+}
+
+.order-card.status-delivered {
+    border-left-color: #4CAF50;
+}
+
+.order-card.status-cancelled {
+    border-left-color: #F44336;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.order-id {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.order-date {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.order-status {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-processing .order-status {
+    background-color: #FFF3E0;
+    color: #FFA500;
+}
+
+.status-shipped .order-status {
+    background-color: #F3E5F5;
+    color: #5d4e6d;
+}
+
+.status-delivered .order-status {
+    background-color: #E8F5E9;
+    color: #4CAF50;
+}
+
+.status-cancelled .order-status {
+    background-color: #FFEBEE;
+    color: #F44336;
+}
+
+.order-details {
+    margin-bottom: 25px;
+}
+
+.student-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.student-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid var(--light-color);
+}
+
+.student-name {
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.student-school {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.order-items {
+    display: grid;
+    gap: 12px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.item-name {
+    font-weight: 500;
+}
+
+.item-price {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.item-price span {
+    font-weight: normal;
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+
+.order-timeline {
+    margin: 30px 0;
+    position: relative;
+}
+
+.timeline-progress {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    height: 4px;
+    background-color: var(--primary-color);
+    z-index: 1;
+    transition: width 0.5s ease;
+}
+
+.timeline-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 24%;
+    position: relative;
+}
+
+.step-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    border: 3px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.step.completed .step-icon {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.step.active .step-icon {
+    background-color: white;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.step-label {
+    font-size: 0.85rem;
+    text-align: center;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.step-date {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.tracking-number, .delivery-proof {
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    margin-top: 5px;
+    text-align: center;
+    font-style: italic;
+}
+
+.delivery-proof {
+    color: #4CAF50;
+}
+
+.order-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    border: none;
+}
+
+.btn-track {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-track:hover {
+    background-color: var(--secondary-color);
+}
+
+.btn-message {
+    background-color: var(--light-color);
+    color: var(--primary-color);
+}
+
+.btn-message:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-review {
+    background-color: #FFC107;
+    color: #333;
+}
+
+.btn-review:hover {
+    background-color: #FFB300;
+}
+
+.btn-reuse {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-reuse:hover {
+    background-color: #3d8b40;
+}
+
+.btn-prepare {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn-prepare:hover {
+    background-color: #f58f6a;
+}
+
+.btn-cancel {
+    background-color: var(--light-color);
+    color: #F44336;
+}
+
+.btn-cancel:hover {
+    background-color: #f0f0f0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .order-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .timeline-steps {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .step {
+        width: 45%;
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    .step-icon {
+        margin-left: 0;
+    }
+    
+    .order-actions {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-filter {
+        flex-direction: column;
+    }
+    
+    .search-box, .status-filter {
+        width: 100%;
+    }
+    
+    .timeline-steps {
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .step {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .step-icon {
+        margin-bottom: 0;
+    }
+    
+    .step-label, .step-date {
+        text-align: left;
+    }
+    
+    .timeline-progress {
+        display: none;
+    }
+}

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Material | Re-Threads</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='landing.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='add-materials.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<header class="header">
+  <div class="container">
+    <a href="/" class="logo">Re-Threads</a>
+    <nav class="navbar">
+      <ul>
+        <li><a href="requests.html">Requests</a></li>
+        <li><a href="contactus-brand.html">Contact Us</a></li>
+        <li class="brand-profile-menu">
+          <button class="brand-profile-btn">
+            <i class="fas fa-building"></i>
+          </button>
+          <div class="brand-profile-dropdown">
+            <a href="{{ url_for('brand_profile') }}" class="dropdown-item">
+              <i class="fas fa-edit"></i> Edit Profile
+            </a>
+            <a href="track-order.html" class="dropdown-item">
+              <i class="fas fa-truck"></i> Track Orders
+            </a>
+            <a href="{{ url_for('logout') }}" class="dropdown-item">
+              <i class="fas fa-sign-out-alt"></i> Sign Out
+            </a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>
+</header>
+
+
+    <!-- Add Material Main Content -->
+    <main class="add-material">
+    <div class="container">
+        <div class="form-header">
+            <h1>Add New Material</h1>
+            <p class="subtitle">Add materials to your inventory</p>
+        </div>
+
+        <div class="form-container">
+            <form class="add-material-form" method="POST" action="{{ url_for('add_material') }}" enctype="multipart/form-data">
+                
+                <!-- Material Information -->
+                <div class="form-section">
+                    <h2 class="section-title"><i class="fas fa-box"></i> Material Information</h2>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="material_name">Material Name</label>
+                            <input type="text" id="material_name" name="material_name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="material_type">Material Type</label>
+                            <select id="material_type" name="material_type" class="form-control" required>
+                                <option value="" disabled selected>Select type</option>
+                                <option value="fabrics">Fabrics</option>
+                                <option value="trims">Trims & Notions</option>
+                                <option value="yarns">Yarns</option>
+                                <option value="leather">Leather/Alternatives</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="quantity">Quantity</label>
+                            <input type="number" id="quantity" name="quantity" class="form-control" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="unit">Unit</label>
+                            <select id="unit" name="unit" class="form-control" required>
+                                <option value="" disabled selected>Select unit</option>
+                                <option value="yards">Yards</option>
+                                <option value="meters">Meters</option>
+                                <option value="pieces">Pieces</option>
+                                <option value="kg">Kilograms</option>
+                                <option value="lbs">Pounds</option>
+                                <option value="rolls">Rolls</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" class="form-control" rows="3" placeholder="Describe the material, its properties, and any relevant details..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="material_condition">Condition</label>
+                        <select id="material_condition" name="material_condition" class="form-control" required>
+                            <option value="" disabled selected>Select condition</option>
+                            <option value="new">New</option>
+                            <option value="like-new">Like New</option>
+                            <option value="good">Good</option>
+                            <option value="fair">Fair</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Material Image -->
+                <div class="form-section">
+                    <h2 class="section-title"><i class="fas fa-image"></i> Material Image</h2>
+
+                    <div class="image-upload">
+                        <div class="image-preview upload-area" id="imageUploadArea">
+                            <div id="materialImagePreview">
+                                <i class="fas fa-image"></i>
+                                <span>No image selected</span>
+                            </div>
+                        </div>
+                        <div class="image-edit">
+                            <input type="file" id="material_image" name="material_image" class="form-control" accept=".png, .jpg, .jpeg">
+                            <label for="material_image"><i class="fas fa-camera"></i> Upload Image</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url_for('inventory') }}'">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Material</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="/templates/landing.html">Re-Threads</a>
+                    <p>Sustainable fashion through creative reuse</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/templates/landing.html">Home</a></li>
+                        <li><a href="/templates/landing.html#why-us">Why Us?</a></li>
+                        <li><a href="/templates/landing.html#for-students">For Students</a></li>
+                        <li><a href="/templates/landing.html#for-brands">For Brands</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Re-Threads. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+   
+    <script>
+        // Preview uploaded image
+        document.getElementById('material_image').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('materialImagePreview');
+                    preview.style.backgroundImage = `url(${e.target.result})`;
+                    preview.innerHTML = '';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>

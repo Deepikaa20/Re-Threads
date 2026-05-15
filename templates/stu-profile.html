@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile | Re-Threads</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='landing.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stu-profile.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">Re-Threads</a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#why-us">Why Us?</a></li>
+                    <li><a href="index.html#for-students">For Students</a></li>
+                    <li><a href="index.html#for-brands">For Brands</a></li>
+                    <li><a href="index.html#contact">Contact Us</a></li>
+                    <li class="profile-menu">
+                        <a href="#" class="user-menu">
+                            <i class="fas fa-user-circle profile-icon"></i>
+                            <span class="tooltip">Edit Profile</span>
+                        </a>
+                        <ul class="profile-dropdown">
+                            <li><a href="student-profile.html"><i class="fas fa-user-edit"></i> Edit Profile</a></li>
+                            <li><a href="my-requests.html"><i class="fas fa-clipboard-list"></i> My Requests</a></li>
+                            <li><a href="saved-materials.html"><i class="fas fa-bookmark"></i> Saved Materials</a></li>
+                               <li><a href="{{ url_for('logout') }}" class="dropdown-item">
+                                <i class="fas fa-sign-out-alt"></i> Sign Out
+                                </a>
+                            </li> 
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Student Profile Main Content -->
+    <main class="student-profile">
+        <div class="container">
+            <div class="profile-header">
+                <h1>Student Profile</h1>
+                <p class="subtitle">Complete your profile to get better recommendations and faster approvals</p>
+            </div>
+            
+            <div class="profile-container">
+                <form class="profile-form" method="POST" action="/student-profile">
+
+                    <!-- Personal Information Section -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-user"></i> Personal Information</h2>
+                        
+                        <div class="avatar-upload">
+                            <div class="avatar-preview">
+                                <div id="imagePreview" style="background-image: url('https://ui-avatars.com/api/?name=Student+User&background=5d4e6d&color=fff');">
+                                </div>
+                            </div>
+                            <div class="avatar-edit">
+                               <input type="file" id="imageUpload" name="profile-photo" accept=".png, .jpg, .jpeg" aria-label="Upload profile photo">
+
+                                <label for="imageUpload"><i class="fas fa-camera"></i> Change Photo</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="full-name">Full Name</label>
+                                <input type="text" id="full-name" name="full-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="dob">Date of Birth</label>
+                                <input type="date" id="dob" name="dob">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="bio">Short Bio</label>
+                            <textarea id="bio" name="bio" rows="3" placeholder="Tell us about yourself and your design interests..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Education Section -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-graduation-cap"></i> Education Information</h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="institution">Institution</label>
+                                <input type="text" id="institution" name="institution" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="program">Program/Degree</label>
+                                <input type="text" id="program" name="program" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="major">Major/Concentration</label>
+                                <input type="text" id="major" name="major">
+                            </div>
+                            <div class="form-group">
+                                <label for="year">Year of Study</label>
+                                <select id="year" name="year" required>
+                                    <option value="" disabled selected>Select year</option>
+                                    <option value="freshman">Freshman</option>
+                                    <option value="sophomore">Sophomore</option>
+                                    <option value="junior">Junior</option>
+                                    <option value="senior">Senior</option>
+                                    <option value="grad">Graduate Student</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="student-id">Student ID (Optional)</label>
+                            <input type="text" id="student-id" name="student-id" placeholder="For verification purposes">
+                        </div>
+                    </div>
+                    
+                    <!-- Design Preferences Section -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-palette"></i> Design Preferences</h2>
+                        
+                        <div class="form-group">
+                            <label>What type of designer are you?</label>
+                            
+                            <div class="checkbox-grid">
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="fashion" name="design-type" value="fashion">
+                                    <label for="fashion">Fashion Designer</label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="textile" name="design-type" value="textile">
+                                    <label for="textile">Textile Designer</label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="costume" name="design-type" value="costume">
+                                    <label for="costume">Costume Designer</label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="accessory" name="design-type" value="accessory">
+                                    <label for="accessory">Accessory Designer</label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="other-designer" name="design-type" value="other">
+                                    <label for="other-designer">Other (please specify)</label>
+                                    <input type="text" id="other-designer-text" name="other-designer-text" class="other-specify">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="materials">Preferred Materials to Work With</label>
+                            <select id="materials" name="materials" multiple>
+                                <option value="cotton">Cotton</option>
+                                <option value="silk">Silk</option>
+                                <option value="wool">Wool</option>
+                                <option value="linen">Linen</option>
+                                <option value="polyester">Polyester</option>
+                                <option value="recycled">Recycled Materials</option>
+                                <option value="denim">Denim</option>
+                                <option value="knits">Knits</option>
+                                <option value="leather">Leather Alternatives</option>
+                            </select>
+                            <span class="hint">Hold Ctrl/Cmd to select multiple options</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="sustainability">How important is sustainability in your design practice?</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="sustainability-very" name="sustainability" value="very">
+                                    <label for="sustainability-very">Very Important</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="sustainability-somewhat" name="sustainability" value="somewhat">
+                                    <label for="sustainability-somewhat">Somewhat Important</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="sustainability-neutral" name="sustainability" value="neutral">
+                                    <label for="sustainability-neutral">Neutral</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="sustainability-learning" name="sustainability" value="learning">
+                                    <label for="sustainability-learning">Learning About It</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Portfolio Links -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-link"></i> Portfolio & Social Links</h2>
+                        
+                        <div class="form-group">
+                            <label for="portfolio">Portfolio Website</label>
+                            <input type="url" id="portfolio" name="portfolio" placeholder="https://">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="instagram">Instagram</label>
+                            <input type="text" id="instagram" name="instagram" placeholder="@username">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="behance">GitHub</label>
+                            <input type="url" id="behance" name="GitHub" placeholder="https://">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="linkedin">LinkedIn</label>
+                            <input type="url" id="linkedin" name="linkedin" placeholder="https://">
+                        </div>
+                    </div>
+                    
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="reset" class="btn-outline btn-cancel">Cancel</button>
+
+                        <button type="submit" class="btn btn-save">Save Profile</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html">Re-Threads</a>
+                    <p>Sustainable fashion through creative reuse</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#why-us">Why Us?</a></li>
+                        <li><a href="index.html#for-students">For Students</a></li>
+                        <li><a href="index.html#for-brands">For Brands</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Re-Threads. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+</body>
+</html>

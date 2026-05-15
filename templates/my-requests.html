@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Requests | Re-Threads</title>
+    <link rel="stylesheet" href="/static/landing.css">
+    <link rel="stylesheet" href="/static/my-requests.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="/templates/landing.html" class="logo">Re-Threads</a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/templates/landing.html">Home</a></li>
+                    <li><a href="/templates/materials.html">Materials</a></li>
+                    <li><a href="/templates/myprojects.html">My Projects</a></li>
+                    <li><a href="/templates/landing.html#contact">Contact Us</a></li>
+                    <li class="profile-menu">
+    <button class="profile-btn">
+        <i class="fas fa-user"></i>
+    </button>
+    <div class="profile-dropdown">
+        <a href="/templates/stu-profile.html" class="dropdown-item">
+            <i class="fas fa-user-edit"></i> Edit Profile
+        </a>
+        <a href="/templates/my-requests.html" class="dropdown-item">
+            <i class="fas fa-clipboard-list"></i> My Requests
+        </a>
+        <a href="saved-materials.html" class="dropdown-item">
+            <i class="fas fa-bookmark"></i> Saved Materials
+        </a>
+         <a href="{{ url_for('logout') }}" class="dropdown-item">
+              <i class="fas fa-sign-out-alt"></i> Sign Out
+        </a>
+    </div>
+</li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- My Requests Main Content -->
+    <main class="my-requests">
+        <div class="container">
+            <div class="page-header">
+                <h1>My Requests</h1>
+                <div class="filter-tabs">
+                    <button class="filter-tab active">All Requests</button>
+                    <button class="filter-tab">Pending</button>
+                    <button class="filter-tab">Approved</button>
+                    <button class="filter-tab">Completed</button>
+                    <button class="filter-tab">Declined</button>
+                </div>
+            </div>
+            
+            <div class="requests-list">
+                <!-- Request Card 1 -->
+                 <div class="requests-list">
+    {% for request in requests %}
+    <div class="request-card">
+        <div class="request-header">
+            <div class="request-id">REQ-{{ request.id }}</div>
+            <div class="request-date">Submitted: {{ request.created_at.strftime('%b %d, %Y') }}</div>
+            <div class="request-status {{ request.status|lower }}">{{ request.status }}</div>
+        </div>
+        <div class="request-body">
+            <div class="material-info">
+                <div class="material-color" style="background-color: #ccc;"></div>
+                <div>
+                    <h3>{{ request.purpose }}</h3>
+                    <p>Requested: {{ request.quantity_requested }} yards</p>
+                </div>
+            </div>
+            <div class="request-details">
+                <p><strong>Project:</strong> {{ request.project_details }}</p>
+                <p><strong>Status Update:</strong> {{ request.status_update or "No update yet" }}</p>
+                {% if request.tracking_number %}
+                    <p><strong>Tracking #:</strong> {{ request.tracking_number }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="request-actions">
+            {% if request.status == 'Approved' %}
+                <button class="btn btn-track">Track Package</button>
+            {% elif request.status == 'Pending' %}
+                <button class="btn-outline btn-cancel">Cancel Request</button>
+            {% elif request.status == 'Completed' %}
+                <button class="btn btn-share">Share Project</button>
+                <button class="btn-outline btn-review">Leave Review</button>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+            </div>
+            
+            <div class="pagination">
+                <button class="btn-outline"><i class="fas fa-chevron-left"></i> Previous</button>
+                <div class="page-numbers">
+                    <button class="active">1</button>
+                    <button>2</button>
+                    <button>3</button>
+                </div>
+                <button class="btn-outline">Next <i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="/templates/landing.html">Re-Threads</a>
+                    <p>Sustainable fashion through creative reuse</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/templates/landing.html">Home</a></li>
+                        <li><a href="/templates/landing.html#why-us">Why Us?</a></li>
+                        <li><a href="/templates/landing.html#for-students">For Students</a></li>
+                        <li><a href="/templates/landing.html#for-brands">For Brands</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Re-Threads. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+</html>

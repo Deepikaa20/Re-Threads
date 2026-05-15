@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge Details | Re-Threads</title>
+    <link rel="stylesheet" href="/static/landing.css">
+    <link rel="stylesheet" href="/static/registeredchallenge.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header (same as other pages) -->
+    <header class="header">
+        <div class="container">
+            <a href="/templates/landing.html" class="logo">Re-Threads</a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="{{ url_for('student_dashboard') }}">Home</a></li>
+                    <li><a href="/templates/materials.html">Materials</a></li>
+                    <li><a href="/templates/myprojects.html">My Projects</a></li>
+                    <li><a href="/templates/contactus-student.html">Contact Us</a></li>
+                   <li class="profile-menu">
+    <button class="profile-btn">
+        <i class="fas fa-user"></i>
+    </button>
+    <div class="profile-dropdown">
+        <a href="/templates/stu-profile.html" class="dropdown-item">
+            <i class="fas fa-user-edit"></i> Edit Profile
+        </a>
+        <a href="/templates/my-requests.html" class="dropdown-item">
+            <i class="fas fa-clipboard-list"></i> My Requests
+        </a>
+        <a href="saved-materials.html" class="dropdown-item">
+            <i class="fas fa-bookmark"></i> Saved Materials
+        </a>
+        <a href="{{ url_for('logout') }}" class="dropdown-item">
+              <i class="fas fa-sign-out-alt"></i> Sign Out
+            </a>
+    </div>
+</li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Challenge Details Main Content -->
+    <main class="challenge-details">
+        <div class="container">
+            <!-- Challenge Header -->
+            <div class="challenge-header">
+                <div class="challenge-title">
+                    <h1>SUSTAINABLE FASHION CHALLENGE</h1>
+                    <p class="tagline">ONLY THE BOLD INNOVATE</p>
+                    <p class="date">25 June 2025</p>
+                </div>
+                <div class="challenge-badge">
+                    <span>You're Registered!</span>
+                    <i class="fas fa-check-circle"></i>
+                </div>
+            </div>
+
+            <div class="challenge-content">
+                <!-- Left Column -->
+                <div class="left-column">
+                    <!-- Challenge Info Card -->
+                    <div class="info-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-trophy"></i> Sustainable Fashion Challenge</h2>
+                            <span class="type-badge">Hackathon</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <p>Gokaraju Rangaraju Institute of Engineering and Technology</p>
+                                    <p class="small">Hyderabad, Telangana, India</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-calendar-check"></i>
+                                <div>
+                                    <p>Updated On: Jun 10, 2025</p>
+                                    <p class="small">Data updates every 15 minutes</p>
+                                </div>
+                            </div>
+                            <div class="prize-info">
+                                <i class="fas fa-award"></i>
+                                <p>Prizes worth <span class="prize-amount">₹30,000</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Status Card -->
+                    <div class="status-card">
+                        <h3>Your Registration Status</h3>
+                        <div class="status-item">
+                            <div class="status-icon completed">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="status-details">
+                                <p>Registered</p>
+                                <p class="small">122 / 250 (Limited Slots)</p>
+                            </div>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-icon completed">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="status-details">
+                                <p>Team Size</p>
+                                <p class="small">2 - 4 Members</p>
+                            </div>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="status-details">
+                                <p>Impressions</p>
+                                <p class="small">1,744</p>
+                            </div>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-icon completed">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="status-details">
+                                <p>Registration Deadline</p>
+                                <p class="small">10 Jun 25, 05:32 PM IST</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-view-team">
+                            <i class="fas fa-users"></i> View Team Status
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="right-column">
+                    <!-- Navigation Tabs -->
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="details">Details</button>
+                        <!-- <button class="tab-btn" data-tab="dates">Dates & Deadlines</button>
+                        <button class="tab-btn" data-tab="prizes">Prizes</button>
+                        <button class="tab-btn" data-tab="reviews">Reviews</button>
+                        <button class="tab-btn" data-tab="faqs">FAQs & Discussions</button> -->
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content active" id="details-tab">
+                        <h2>Challenge Details</h2>
+                        <div class="content-section">
+                            <h3>About the Challenge</h3>
+                            <p>The Sustainable Fashion Challenge invites students to create innovative solutions that address environmental issues in the fashion industry. This hackathon focuses on upcycling, zero-waste design, and sustainable material innovation.</p>
+                            
+                            <h3>Theme: INNOVATEX</h3>
+                            <p>Innovate textile solutions that reduce waste and environmental impact while maintaining style and functionality.</p>
+                            
+                            <h3>Eligibility</h3>
+                            <ul>
+                                <li>Open to all undergraduate and graduate students</li>
+                                <li>Teams of 2-4 members</li>
+                                <li>Participants must use at least 50% materials from Re-Threads</li>
+                            </ul>
+                            
+                            <h3>Judging Criteria</h3>
+                            <ol>
+                                <li><strong>Innovation (30%):</strong> Originality and creativity of the solution</li>
+                                <li><strong>Sustainability (30%):</strong> Environmental impact reduction</li>
+                                <li><strong>Feasibility (20%):</strong> Practical implementation potential</li>
+                                <li><strong>Aesthetics (20%):</strong> Visual appeal and design quality</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="dates-tab">
+                        <h2>Important Dates</h2>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-date">Jun 10, 2025</div>
+                                <div class="timeline-content">
+                                    <h4>Registration Opens</h4>
+                                    <p>Start forming your teams and register for the challenge</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">Jun 20, 2025</div>
+                                <div class="timeline-content">
+                                    <h4>Materials Pickup Deadline</h4>
+                                    <p>Last day to request materials from Re-Threads</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">Jun 25, 2025</div>
+                                <div class="timeline-content">
+                                    <h4>Submission Deadline</h4>
+                                    <p>Final projects must be submitted by 5:00 PM IST</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">Jun 28, 2025</div>
+                                <div class="timeline-content">
+                                    <h4>Results Announcement</h4>
+                                    <p>Winners will be announced at the awards ceremony</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="prizes-tab">
+                        <h2>Prizes</h2>
+                        <div class="prizes-grid">
+                            <div class="prize-card">
+                                <div class="prize-rank">1st</div>
+                                <div class="prize-details">
+                                    <h3>₹15,000</h3>
+                                    <ul>
+                                        <li>Featured on Re-Threads website</li>
+                                        <li>Mentorship session with industry experts</li>
+                                        <li>Premium material kit</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="prize-card">
+                                <div class="prize-rank">2nd</div>
+                                <div class="prize-details">
+                                    <h3>₹10,000</h3>
+                                    <ul>
+                                        <li>Professional portfolio review</li>
+                                        <li>Standard material kit</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="prize-card">
+                                <div class="prize-rank">3rd</div>
+                                <div class="prize-details">
+                                    <h3>₹5,000</h3>
+                                    <ul>
+                                        <li>Basic material kit</li>
+                                        <li>Certificate of achievement</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="special-prizes">
+                            <h3>Special Recognition Awards</h3>
+                            <p>Additional prizes will be awarded for:</p>
+                            <ul>
+                                <li>Most Innovative Material Use</li>
+                                <li>Best Zero-Waste Design</li>
+                                <li>People's Choice Award</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Other tabs would go here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (same as other pages) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="/templates/landing.html">Re-Threads</a>
+                    <p>Sustainable fashion through creative reuse</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/templates/landing.html">Home</a></li>
+                        <li><a href="/templates/landing.html#why-us">Why Us?</a></li>
+                        <li><a href="/templates/landing.html#for-students">For Students</a></li>
+                        <li><a href="/templates/landing.html#for-brands">For Brands</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Re-Threads. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+</html>

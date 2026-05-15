@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Portfolio Assistance | Re-Threads</title>
+  <link rel="stylesheet" href="/static/landing.css"/>
+  <link rel="stylesheet" href="/static/portfolio.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="/templates/landing.html" class="logo">Re-Threads</a>
+      <nav class="navbar">
+        <ul>
+                    <li><a href="{{ url_for('student_dashboard') }}">Home</a></li>
+          <li><a href="/templates/materials.html">Materials</a></li>
+          <li><a href="{{ url_for('my_projects') }}">My Projects</a></li>
+          <li><a href="/templates/contactus-student.html">Contact Us</a></li>
+          <li class="profile-menu">
+            <button class="profile-btn"><i class="fas fa-user"></i></button>
+            <div class="profile-dropdown">
+              <a href="/templates/stu-profile.html" class="dropdown-item"><i class="fas fa-user-edit"></i> Edit Profile</a>
+              <a href="/templates/my-requests.html" class="dropdown-item"><i class="fas fa-clipboard-list"></i> My Requests</a>
+              <a href="saved-materials.html" class="dropdown-item"><i class="fas fa-bookmark"></i> Saved Materials</a>
+            <a href="{{ url_for('logout') }}" class="dropdown-item">
+              <i class="fas fa-sign-out-alt"></i> Sign Out
+            </a>           
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+    </div>
+  </header>
+
+  <!-- AI Portfolio Builder -->
+  <main class="ai-portfolio-builder" id="portfolio-content">
+    <div class="container">
+      <div class="progress-bar">
+        <div class="progress" style="width: 25%"></div>
+      </div>
+
+      <div class="wizard-container">
+
+        <!-- Step 1 -->
+        <div class="wizard-step active" id="step-1">
+          <div class="step-header">
+            <span class="step-number">1</span>
+            <h2>Portfolio Foundation</h2>
+            <p>Let's start with the basics of your fashion portfolio</p>
+          </div>
+
+          <!-- Inputs -->
+          <div class="form-group">
+            <label for="portfolio-purpose">What is the primary purpose of your portfolio?</label>
+            <select id="portfolio-purpose" class="form-control">
+              <option value="" disabled selected>Select your purpose</option>
+              <option value="university">University/College Application</option>
+              <option value="internship">Internship Application</option>
+              <option value="job">Job Application</option>
+              <option value="competition">Design Competition</option>
+              <option value="personal">Personal Branding</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="design-focus">What is your primary design focus?</label>
+            <div class="checkbox-grid">
+              <label><input type="checkbox" name="design-focus" value="womenswear"/> Womenswear</label>
+              <label><input type="checkbox" name="design-focus" value="menswear"/> Menswear</label>
+              <label><input type="checkbox" name="design-focus" value="childrenswear"/> Childrenswear</label>
+              <label><input type="checkbox" name="design-focus" value="sportswear"/> Sportswear</label>
+              <label><input type="checkbox" name="design-focus" value="accessories"/> Accessories</label>
+              <label><input type="checkbox" name="design-focus" value="costume"/> Costume Design</label>
+              <label><input type="checkbox" name="design-focus" value="sustainable"/> Sustainable Fashion</label>
+              <label><input type="checkbox" name="design-focus" value="other"/> Other</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="design-style">How would you describe your design style?</label>
+            <textarea id="design-style" class="form-control" rows="3" placeholder="Describe in 2-3 sentences"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>What technical skills would you like to highlight?</label>
+            <div class="skills-selector">
+              <div class="skill-category">
+                <h4>Design Skills</h4>
+                <div class="skills-grid">
+                  <label><input type="checkbox" name="skills" value="sketching"/> Fashion Sketching</label>
+                  <label><input type="checkbox" name="skills" value="draping"/> Draping</label>
+                  <label><input type="checkbox" name="skills" value="pattern-making"/> Pattern Making</label>
+                  <label><input type="checkbox" name="skills" value="cad"/> CAD</label>
+                </div>
+              </div>
+              <div class="skill-category">
+                <h4>Construction Skills</h4>
+                <div class="skills-grid">
+                  <label><input type="checkbox" name="skills" value="sewing"/> Sewing</label>
+                  <label><input type="checkbox" name="skills" value="tailoring"/> Tailoring</label>
+                  <label><input type="checkbox" name="skills" value="knitwear"/> Knitwear</label>
+                  <label><input type="checkbox" name="skills" value="embroidery"/> Embroidery</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-navigation">
+            <button class="btn btn-next" onclick="nextStep(1, 2)">Next: Add Projects <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="wizard-step" id="step-2">
+          <div class="step-header">
+            <span class="step-number">2</span>
+            <h2>Project Showcase</h2>
+            <p>Tell us about your design projects</p>
+          </div>
+
+          <div class="project-form">
+            <div class="form-group">
+              <label for="project-title">Project Title</label>
+              <input type="text" id="project-title" class="form-control" placeholder="e.g., Urban Nomad Collection"/>
+            </div>
+
+            <div class="form-group">
+              <label for="project-year">Year Created</label>
+              <input type="number" id="project-year" class="form-control" min="2000" max="2025" placeholder="2023"/>
+            </div>
+
+            <div class="form-group">
+              <label for="project-description">Project Description</label>
+              <textarea id="project-description" class="form-control" rows="4" placeholder="Describe your project..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Project Type</label>
+              <div class="radio-group">
+                <label><input type="radio" name="project-type" value="academic" checked/> Academic Project</label>
+                <label><input type="radio" name="project-type" value="personal"/> Personal Project</label>
+                <label><input type="radio" name="project-type" value="professional"/> Professional Work</label>
+                <label><input type="radio" name="project-type" value="competition"/> Competition Entry</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-navigation">
+            <button class="btn btn-outline" onclick="prevStep(2, 1)"><i class="fas fa-arrow-left"></i> Back</button>
+            <button class="btn btn-next" onclick="nextStep(2, 3)">Next: Final Details <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="wizard-step" id="step-3">
+          <div class="step-header">
+            <span class="step-number">3</span>
+            <h2>Portfolio Presentation</h2>
+            <p>Customize how your portfolio will look</p>
+          </div>
+
+          <!-- <div class="form-group">
+            <label for="portfolio-layout">Select Portfolio Layout</label>
+            <div class="layout-options">
+              <label><input type="radio" name="portfolio-layout" value="minimal" checked/> Minimal</label>
+              <label><input type="radio" name="portfolio-layout" value="editorial"/> Editorial</label>
+              <label><input type="radio" name="portfolio-layout" value="creative"/> Creative</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Color Scheme</label>
+            <div class="color-options">
+              <label><input type="radio" name="color-scheme" value="classic" checked/></label>
+              <label><input type="radio" name="color-scheme" value="modern"/></label>
+              <label><input type="radio" name="color-scheme" value="warm"/></label>
+              <label><input type="radio" name="color-scheme" value="cool"/></label>
+              <label><input type="radio" name="color-scheme" value="custom"/><i class="fas fa-sliders-h"></i></label>
+            </div>
+          </div> -->
+
+          <div class="form-group">
+            <label for="portfolio-title">Portfolio Title</label>
+            <input type="text" id="portfolio-title" class="form-control"/>
+          </div>
+
+          <div class="form-group">
+            <label for="bio-statement">Short Bio/Design Statement</label>
+            <textarea id="bio-statement" class="form-control" rows="4" placeholder="Write about your design background..."></textarea>
+          </div>
+
+          <!-- <button type="button" class="btn btn-outline" id="generate-bio-btn">
+            <i class="fas fa-magic"></i> Generate with AI
+          </button> -->
+
+          <div class="form-navigation">
+            <button class="btn btn-outline" onclick="prevStep(3, 2)"><i class="fas fa-arrow-left"></i> Back</button>
+            <!-- <button class="btn btn-preview"><i class="fas fa-eye"></i> Preview Portfolio</button> -->
+            <button class="btn btn-download" id="download-pdf-btn" style="margin-top:2rem;">
+  <i class="fas fa-file-pdf"></i> Download Portfolio as PDF
+</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <a href="/templates/landing.html">Re-Threads</a>
+          <p>Sustainable fashion through creative reuse</p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/templates/landing.html">Home</a></li>
+            <li><a href="/templates/landing.html#why-us">Why Us?</a></li>
+            <li><a href="/templates/landing.html#for-students">For Students</a></li>
+            <li><a href="/templates/landing.html#for-brands">For Brands</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h3>Connect With Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Re-Threads. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+document.getElementById('download-pdf-btn').addEventListener('click', function () {
+  // Gather all form data
+  const portfolioTitle = document.getElementById('portfolio-title').value || 'My Portfolio';
+  const bio = document.getElementById('bio-statement').value || '';
+  const purpose = document.getElementById('portfolio-purpose').value || '';
+  const designStyle = document.getElementById('design-style').value || '';
+  const designFocus = Array.from(document.querySelectorAll('input[name="design-focus"]:checked')).map(el => el.value).join(', ');
+  const skills = Array.from(document.querySelectorAll('input[name="skills"]:checked')).map(el => el.value).join(', ');
+  const projectTitle = document.getElementById('project-title').value || '';
+  const projectYear = document.getElementById('project-year').value || '';
+  const projectDesc = document.getElementById('project-description').value || '';
+  const projectType = document.querySelector('input[name="project-type"]:checked')?.value || '';
+
+  // Create PDF
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF();
+
+  let y = 20;
+  pdf.setFontSize(22);
+  pdf.setTextColor(34, 139, 34);
+  pdf.text(portfolioTitle, 105, y, { align: "center" });
+
+  y += 10;
+  pdf.setFontSize(12);
+  pdf.setTextColor(0,0,0);
+  pdf.text(`Purpose: ${purpose}`, 20, y);
+  y += 8;
+  pdf.text(`Design Focus: ${designFocus}`, 20, y);
+  y += 8;
+  pdf.text(`Design Style: ${designStyle}`, 20, y);
+  y += 8;
+  pdf.text(`Skills: ${skills}`, 20, y);
+
+  y += 12;
+  pdf.setFontSize(16);
+  pdf.setTextColor(34, 139, 34);
+  pdf.text("Project Showcase", 20, y);
+  y += 8;
+  pdf.setFontSize(12);
+  pdf.setTextColor(0,0,0);
+  pdf.text(`Title: ${projectTitle}`, 20, y);
+  y += 8;
+  pdf.text(`Year: ${projectYear}`, 20, y);
+  y += 8;
+  pdf.text(`Type: ${projectType}`, 20, y);
+  y += 8;
+  pdf.text("Description:", 20, y);
+  y += 8;
+  pdf.setFontSize(11);
+  pdf.text(pdf.splitTextToSize(projectDesc, 170), 25, y);
+  y += 20;
+
+  pdf.setFontSize(16);
+  pdf.setTextColor(34, 139, 34);
+  pdf.text("Bio / Design Statement", 20, y);
+  y += 8;
+  pdf.setFontSize(11);
+  pdf.setTextColor(0,0,0);
+  pdf.text(pdf.splitTextToSize(bio, 170), 25, y);
+
+  pdf.save('portfolio.pdf');
+});
+
+function nextStep(current, next) {
+  document.getElementById('step-' + current).classList.remove('active');
+  document.getElementById('step-' + next).classList.add('active');
+  // Optionally update progress bar here
+}
+
+function prevStep(current, prev) {
+  document.getElementById('step-' + current).classList.remove('active');
+  document.getElementById('step-' + prev).classList.add('active');
+  // Optionally update progress bar here
+}
+</script>

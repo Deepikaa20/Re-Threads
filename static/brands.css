@@ -1,0 +1,465 @@
+/* brand.css - Brand Dashboard Styles */
+
+/* Brand Dashboard Layout */
+.brand-dashboard {
+    padding-top: 50px;
+    background-color: var(--light-color);
+
+}
+
+/* Impact Banner */
+.impact-banner {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #6a5b7b 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 40px;
+    margin-bottom: 40px;
+}
+
+.impact-banner .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.impact-content h1 {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+}
+
+.impact-stats {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.impact-stat {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    display: block;
+    color: var(--accent-color);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.impact-visual {
+    position: relative;
+}
+
+.impact-badge {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    padding: 12px 20px;
+    display: inline-flex;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.impact-badge i {
+    margin-right: 10px;
+    color: var(--accent-color);
+}
+
+/* Quick Actions */
+.quick-actions {
+    margin-bottom: 40px;
+}
+
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.action-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    transition: var(--transition);
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.action-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.action-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.action-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.action-card p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Activity Timeline */
+.brand-activity {
+    margin-bottom: 40px;
+}
+
+.activity-timeline {
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-item {
+    display: flex;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.timeline-item:last-child {
+    border-bottom: none;
+}
+
+.timeline-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.timeline-icon.approved {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+}
+
+.timeline-icon.new {
+    background-color: rgba(255, 193, 7, 0.1);
+    color: #FFC107;
+}
+
+.timeline-icon.shipment {
+    background-color: rgba(33, 150, 243, 0.1);
+    color: #2196F3;
+}
+
+.timeline-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: var(--dark-color);
+}
+
+.timeline-content p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.timeline-date {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+}
+
+/* Inventory Table */
+.inventory-summary {
+    margin-bottom: 40px;
+}
+
+.inventory-table {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.table-header {
+    display: flex;
+    padding: 15px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+.table-row {
+    display: flex;
+    padding: 15px 20px;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    transition: var(--transition);
+}
+
+.table-row:hover {
+    background-color: #f9f9f9;
+}
+
+.col-material {
+    flex: 3;
+}
+
+.col-quantity, .col-requests, .col-status {
+    flex: 1;
+}
+
+.material-info {
+    display: flex;
+    align-items: center;
+}
+
+.material-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.material-info h4 {
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.material-type {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    background-color: rgba(138, 132, 162, 0.1);
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.col-status {
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.col-status.available {
+    color: #4CAF50;
+}
+
+.col-status.low {
+    color: #FF9800;
+}
+
+/* Student Showcase */
+.student-showcase {
+    margin-bottom: 40px;
+}
+
+.showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.design-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.design-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.design-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.design-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.design-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(93, 78, 109, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.design-card:hover .design-overlay {
+    opacity: 1;
+}
+
+.design-card:hover .design-image img {
+    transform: scale(1.05);
+}
+
+.design-info {
+    padding: 20px;
+}
+
+.design-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: var(--dark-color);
+}
+
+.designer, .materials-used {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 5px;
+}
+
+.materials-used {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* Sustainability Report */
+.sustainability-report {
+    margin-bottom: 60px;
+}
+
+.report-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.report-content {
+    flex: 1;
+    min-width: 300px;
+    padding: 40px;
+}
+
+.report-content h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.report-content p {
+    margin-bottom: 30px;
+    color: var(--text-light);
+}
+
+.report-stats {
+    margin-bottom: 30px;
+}
+
+.report-stats li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.report-stats i {
+    margin-right: 15px;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    width: 30px;
+    text-align: center;
+}
+
+.report-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.report-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .impact-banner .container {
+        flex-direction: column;
+    }
+    
+    .impact-content {
+        margin-bottom: 30px;
+    }
+    
+    .impact-stats {
+        justify-content: center;
+    }
+    
+    .report-card {
+        flex-direction: column;
+    }
+    
+    .report-image {
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .impact-banner {
+        padding: 30px 20px;
+    }
+    
+    .table-header {
+        display: none;
+    }
+    
+    .table-row {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+    
+    .col-material, .col-quantity, .col-requests, .col-status {
+        width: 100%;
+        padding: 5px 0;
+    }
+    
+    .col-status {
+        padding-top: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .impact-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-value {
+        font-size: 2rem;
+    }
+    
+    .action-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .report-content {
+        padding: 25px;
+    }
+}

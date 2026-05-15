@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Challenges | Re-Threads</title>
+    <link rel="stylesheet" href="/static/landing.css">
+    <link rel="stylesheet" href="/static/challenges.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header (same as landing page) -->
+    <header class="header">
+        <div class="container">
+            <a href="/templates/student-dashboard.html" class="logo">Re-Threads</a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/templates/student-dashboard.html">Home</a></li>
+                     <li><a href="/templates/materials.html">Materials</a></li>
+                    <li><a href="/templates/myprojects.html">My Projects</a></li>
+                    <li><a href="/templates/contactus-student.html">Contact Us</a></li>
+                     <li class="profile-menu">
+    <button class="profile-btn">
+        <i class="fas fa-user"></i>
+    </button>
+    <div class="profile-dropdown">
+        <a href="/templates/stu-profile.html" class="dropdown-item">
+            <i class="fas fa-user-edit"></i> Edit Profile
+        </a>
+        <a href="/templates/my-requests.html" class="dropdown-item">
+            <i class="fas fa-clipboard-list"></i> My Requests
+        </a>
+        <a href="/templates/saved-materials.html" class="dropdown-item">
+            <i class="fas fa-bookmark"></i> Saved Materials
+        </a>
+        <a href="/templates/landing.html" class="dropdown-item">
+            <i class="fas fa-sign-out-alt"></i> Sign Out
+        </a>
+    </div>
+</li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Challenge Filters -->
+    <section class="challenge-filters">
+        <div class="container">
+            <h2>Filter Challenges</h2>
+            <div class="filter-grid">
+                <div class="filter-group">
+                    <label for="status">Status</label>
+                    <select id="status" class="filter-select">
+                        <option value="all">All Challenges</option>
+                        <option value="upcoming">Upcoming</option>
+                        <option value="ongoing">Ongoing</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="duration">Duration</label>
+                    <select id="duration" class="filter-select">
+                        <option value="all">Any Duration</option>
+                        <option value="1week">1 Week</option>
+                        <option value="2weeks">2 Weeks</option>
+                        <option value="1month">1 Month</option>
+                        <option value="3months">3 Months</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="type">Type</label>
+                    <select id="type" class="filter-select">
+                        <option value="all">All Types</option>
+                        <option value="sustainable">Sustainable Fashion</option>
+                        <option value="streetwear">Streetwear</option>
+                        <option value="couture">Couture</option>
+                        <option value="accessories">Accessories</option>
+                        <option value="technical">Technical Design</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="compensation">Compensation</label>
+                    <select id="compensation" class="filter-select">
+                        <option value="all">Any</option>
+                        <option value="paid">Paid</option>
+                        <option value="unpaid">Unpaid</option>
+                        <option value="prize">Prize-based</option>
+                    </select>
+                </div>
+                
+                <button class="btn btn-filter">Apply Filters</button>
+                <button class="btn btn-outline">Reset</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges Grid -->
+    <section class="challenges-grid">
+        <div class="container">
+            <h2 class="section-title">Available Challenges</h2>
+            
+            <div class="challenges-container">
+                <!-- Challenge 1 -->
+                <div class="challenge-card">
+                    <div class="challenge-image">
+                        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Sustainable Fashion Challenge">
+                        <div class="challenge-overlay">
+                            <div class="overlay-content">
+                                <h3>Sustainable Fashion Challenge</h3>
+                                <p>Design a zero-waste collection using only deadstock materials. Winners will have their designs featured in Eco Fashion Week and receive a $5,000 prize.</p>
+                                <ul class="challenge-details">
+                                    <li><i class="fas fa-trophy"></i> $5,000 Prize</li>
+                                    <li><i class="fas fa-calendar-check"></i> June 1 - 30, 2023</li>
+                                    <li><i class="fas fa-users"></i> 45 participants</li>
+                                    <li><i class="fas fa-certificate"></i> Professional judging panel</li>
+                                </ul>
+                                <button class="btn btn-join" onclick="window.location.href='/templates/joinchallenge.html'">Join Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="challenge-badge ongoing">Ongoing</div>
+                    <div class="challenge-content">
+                        <h3>Sustainable Fashion Challenge</h3>
+                        <div class="challenge-meta">
+                            <span class="deadline"><i class="far fa-calendar-alt"></i> Deadline: June 30</span>
+                            <span class="prize"><i class="fas fa-trophy"></i> $5,000</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Challenge 2 -->
+                <div class="challenge-card">
+                    <div class="challenge-image">
+                        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Streetwear Design Challenge">
+                        <div class="challenge-overlay">
+                            <div class="overlay-content">
+                                <h3>Urban Streetwear Challenge</h3>
+                                <p>Create an innovative streetwear collection that blends urban aesthetics with sustainable practices. Winning designs will be produced in limited edition.</p>
+                                <ul class="challenge-details">
+                                    <li><i class="fas fa-trophy"></i> Production contract + $3,000</li>
+                                    <li><i class="fas fa-calendar-check"></i> July 10 - August 10, 2023</li>
+                                    <li><i class="fas fa-users"></i> 32 participants</li>
+                                    <li><i class="fas fa-certificate"></i> Sponsored by major streetwear brand</li>
+                                </ul>
+                                <button class="btn btn-join" onclick="window.location.href='/templates/joinchallenge.html'">Join Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="challenge-badge upcoming">Upcoming</div>
+                    <div class="challenge-content">
+                        <h3>Urban Streetwear Challenge</h3>
+                        <div class="challenge-meta">
+                            <span class="deadline"><i class="far fa-calendar-alt"></i> Starts: July 10</span>
+                            <span class="prize"><i class="fas fa-trophy"></i> Production + $3,000</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Challenge 3 -->
+                <div class="challenge-card">
+                    <div class="challenge-image">
+                        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Technical Design Challenge">
+                        <div class="challenge-overlay">
+                            <div class="overlay-content">
+                                <h3>Technical Apparel Challenge</h3>
+                                <p>Design high-performance athletic wear with innovative technical features. Winners receive mentorship from industry experts.</p>
+                                <ul class="challenge-details">
+                                    <li><i class="fas fa-trophy"></i> Mentorship program</li>
+                                    <li><i class="fas fa-calendar-check"></i> August 1 - September 15, 2023</li>
+                                    <li><i class="fas fa-users"></i> 28 participants</li>
+                                    <li><i class="fas fa-certificate"></i> Focus on functionality and innovation</li>
+                                </ul>
+                                <button class="btn btn-join" onclick="window.location.href='/templates/joinchallenge.html'">Join Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="challenge-badge upcoming">Upcoming</div>
+                    <div class="challenge-content">
+                        <h3>Technical Apparel Challenge</h3>
+                        <div class="challenge-meta">
+                            <span class="deadline"><i class="far fa-calendar-alt"></i> Starts: August 1</span>
+                            <span class="prize"><i class="fas fa-trophy"></i> Expert mentorship</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add more challenge cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as landing page) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="/templates/landing.html">Re-Threads</a>
+                    <p>Sustainable fashion through creative reuse</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/templates/landing.html">Home</a></li>
+                        <li><a href="/templates/landing.html#why-us">Why Us?</a></li>
+                        <li><a href="/templates/landing.html#for-students">For Students</a></li>
+                        <li><a href="/templates/landing.html#for-brands">For Brands</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Re-Threads. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+</html>

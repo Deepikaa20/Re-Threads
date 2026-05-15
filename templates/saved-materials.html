@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Materials | Re-Threads</title>
+    <link rel="stylesheet" href="/static/landing.css">
+    <link rel="stylesheet" href="/static/saved-materials.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="/templates/landing.html" class="logo">Re-Threads</a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/templates/student-dashboard.html">Home</a></li>
+                     <li><a href="/templates/materials.html">Materials</a></li>
+                    <li><a href="/templates/myprojects.html">My Projects</a></li>
+                    <li><a href="/templates/contactus-student.html">Contact Us</a></li>
+                   <li class="profile-menu">
+    <button class="profile-btn">
+        <i class="fas fa-user"></i>
+    </button>
+    <div class="profile-dropdown">
+        <a href="/templates/stu-profile.html" class="dropdown-item">
+            <i class="fas fa-user-edit"></i> Edit Profile
+        </a>
+        <a href="/templates/my-requests.html" class="dropdown-item">
+            <i class="fas fa-clipboard-list"></i> My Requests
+        </a>
+        <a href="saved-materials.html" class="dropdown-item">
+            <i class="fas fa-bookmark"></i> Saved Materials
+        </a>
+        <a href="/templates/landing.html" class="dropdown-item">
+            <i class="fas fa-sign-out-alt"></i> Sign Out
+        </a>
+    </div>
+</li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Saved Materials Main Content -->
+    <main class="saved-materials">
+        <div class="container">
+            <div class="page-header">
+                <h1>Saved Materials</h1>
+                <div class="search-sort">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search saved materials...">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="sort-options">
+                        <select>
+                            <option>Sort by: Recently Saved</option>
+                            <option>Sort by: Most Available</option>
+                            <option>Sort by: Material Type</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="materials-grid">
+                <!-- Material Card 1 -->
+                <div class="material-card">
+                    <div class="material-image" style="background-color: #5d4e6d;"></div>
+                    <div class="material-details">
+                        <div class="material-header">
+                            <h3>Organic Cotton Jersey</h3>
+                            <span class="material-quantity">45 yards available</span>
+                        </div>
+                        <div class="material-brand">
+                            <i class="fas fa-tag"></i> From: EcoFabrics Co.
+                        </div>
+                        <div class="material-specs">
+                            <div class="spec">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>Width: 60"</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-weight-hanging"></i>
+                                <span>Weight: Medium</span>
+                            </div>
+                        </div>
+                        <div class="material-actions">
+                            <button class="btn btn-request">Request Now</button>
+                            <button class="btn-outline btn-remove"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Material Card 2 -->
+                <div class="material-card">
+                    <div class="material-image" style="background-color: #f9a88b;"></div>
+                    <div class="material-details">
+                        <div class="material-header">
+                            <h3>Recycled Polyester Twill</h3>
+                            <span class="material-quantity">32 yards available</span>
+                        </div>
+                        <div class="material-brand">
+                            <i class="fas fa-tag"></i> From: GreenTextiles Inc.
+                        </div>
+                        <div class="material-specs">
+                            <div class="spec">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>Width: 58"</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-weight-hanging"></i>
+                                <span>Weight: Heavy</span>
+                            </div>
+                        </div>
+                        <div class="material-actions">
+                            <button class="btn btn-request">Request Now</button>
+                            <button class="btn-outline btn-remove"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Material Card 3 -->
+                <div class="material-card">
+                    <div class="material-image" style="background-color: #8a84a2;"></div>
+                    <div class="material-details">
+                        <div class="material-header">
+                            <h3>Deadstock Silk Charmeuse</h3>
+                            <span class="material-quantity">12 yards available</span>
+                        </div>
+                        <div class="material-brand">
+                            <i class="fas fa-tag"></i> From: Luxe Fabrics
+                        </div>
+                        <div class="material-specs">
+                            <div class="spec">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>Width: 54"</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-weight-hanging"></i>
+                                <span>Weight: Light</span>
+                            </div>
+                        </div>
+                        <div class="material-actions">
+                            <button class="btn btn-request">Request Now</button>
+                            <button class="btn-outline btn-remove"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="empty-state">
+                <i class="fas fa-bookmark"></i>
+                <h3>No Saved Materials Yet</h3>
+                <p>Save materials you're interested in by clicking the bookmark icon on material listings</p>
+                <a href="/templates/materials.html" class="btn">Browse Materials</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="/templates/landing.html">Re-Threads</a>
+                    <p>Sustainable fashion through creative reuse</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/templates/landing.html">Home</a></li>
+                        <li><a href="/templates/landing.html#why-us">Why Us?</a></li>
+                        <li><a href="/templates/landing.html#for-students">For Students</a></li>
+                        <li><a href="/templates/landing.html#for-brands">For Brands</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Re-Threads. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="saved-materials.js"></script>
+</body>
+</html>

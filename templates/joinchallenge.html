@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Challenge | Re-Threads</title>
+    <link rel="stylesheet" href="/static/landing.css">
+    <link rel="stylesheet" href="/static/joinchallenge.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header (same as landing page) -->
+    <header class="header">
+        <div class="container">
+            <a href="/templates/landing.html" class="logo">Re-Threads</a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/templates/student-dashboard.html">Home</a></li>
+                     <li><a href="templates/materials.html">Materials</a></li>
+                    <li><a href="/templates/myprojects.html">My Projects</a></li>
+                    <li><a href="/templates/contactus-student.html">Contact Us</a></li>
+                    <li class="profile-menu">
+    <button class="profile-btn">
+        <i class="fas fa-user"></i>
+    </button>
+    <div class="profile-dropdown">
+        <a href="/templates/stu-profile.html" class="dropdown-item">
+            <i class="fas fa-user-edit"></i> Edit Profile
+        </a>
+        <a href="/templates/my-requests.html" class="dropdown-item">
+            <i class="fas fa-clipboard-list"></i> My Requests
+        </a>
+        <a href="/templates/saved-materials.html" class="dropdown-item">
+            <i class="fas fa-bookmark"></i> Saved Materials
+        </a>
+        <a href="/templates/landing.html" class="dropdown-item">
+            <i class="fas fa-sign-out-alt"></i> Sign Out
+        </a>
+    </div>
+</li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Challenge Registration Form -->
+    <main class="challenge-registration">
+        <div class="container">
+            <div class="registration-header">
+                <h1>Join Challenge: Sustainable Fashion</h1>
+                <p class="challenge-prize"><i class="fas fa-trophy"></i> $5,000 Prize | <i class="fas fa-users"></i> 45 Participants</p>
+            </div>
+            
+            <!-- <div class="registration-steps">
+                <div class="step active">1</div>
+                <div class="step-divider"></div>
+                <div class="step">2</div>
+                <div class="step-divider"></div>
+                <div class="step">3</div>
+            </div> -->
+            
+            <form class="registration-form">
+                <section class="form-section">
+                    <h2 class="section-title">Candidate Details</h2>
+                    
+                    <div class="form-group">
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" class="form-control" placeholder="eg: abc@gmail.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mobile">Mobile*</label>
+                        <input type="tel" id="mobile" class="form-control" placeholder="eg: +91 - xxxxxxxxxx" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First Name*</label>
+                            <input type="text" id="first-name" class="form-control" placeholder="Johny" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name (if applicable)</label>
+                            <input type="text" id="last-name" class="form-control" placeholder="Deptt">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Gender*</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="female" checked> Female
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="male"> Male
+                            </label>
+                            <!-- <label class="radio-option">
+                                <input type="radio" name="gender" value="transgender"> Transgender
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="intersex"> Intersex
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="non-binary"> Non-binary
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="prefer-not"> Prefer not to say
+                            </label> -->
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="other"> Others
+                            </label>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="form-section">
+                    <h2 class="section-title">Institute Details</h2>
+                    
+                    <div class="form-group">
+                        <label for="institute">Institute Name*</label>
+                        <input type="text" id="institute" class="form-control" placeholder="Institution Name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Type*</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="institute-type" value="college" checked> College Students
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="institute-type" value="professional"> Professional
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="institute-type" value="other"> Others
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="institute-type" value="fresher"> Fresher
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="course">Course*</label>
+                            <select id="course" class="form-control" required>
+                                <option value="" disabled selected>Select your role</option>
+                                <option value="btech">B.Tech/BE (Bachelor of Technology / Bachelor of Engineering)</option>
+                                <option value="bdes">B.Des (Bachelor of Design)</option>
+                                <option value="bsc">B.Sc (Fashion Design)</option>
+                                <option value="mtech">M.Tech/ME</option>
+                                <option value="mdes">M.Des</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="specialization">Course Specialization*</label>
+                            <input type="text" id="specialization" class="form-control" placeholder="Specialization" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="graduation-year">Graduating Year*</label>
+                            <div class="radio-group">
+                                <label class="radio-option small">
+                                    <input type="radio" name="graduation-year" value="2025" checked> 2025
+                                </label>
+                                <label class="radio-option small">
+                                    <input type="radio" name="graduation-year" value="2026"> 2026
+                                </label>
+                                <label class="radio-option small">
+                                    <input type="radio" name="graduation-year" value="2027"> 2027
+                                </label>
+                                <label class="radio-option small">
+                                    <input type="radio" name="graduation-year" value="2028"> 2028
+                                </label>
+                                <label class="radio-option small">
+                                    <input type="radio" name="graduation-year" value="2029"> 2029
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="course-duration">Course Duration*</label>
+                            <select id="course-duration" class="form-control" required>
+                                <option value="4">2 Year</option>
+                                <option value="3">3 Year</option>
+                                <option value="2">4 Year</option>
+                                <option value="5">5 Year</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="form-section">
+                    <h2 class="section-title">Additional Information</h2>
+                    
+                    <div class="form-group">
+                        <label>Differently Abled</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="differently-abled" value="no" checked> No
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="differently-abled" value="yes"> Yes
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location">Location*</label>
+                        <input type="text" id="location" class="form-control" placeholder="Area, City, State" required>
+                    </div>
+                    
+                    <div class="form-group terms">
+                        <label class="checkbox-option">
+                            <input type="checkbox" required> 
+                            By registering for this opportunity, you agree to share the data mentioned in this form or any form henceforth on this opportunity with the recruiter of this opportunity for further analysis, processing, and outreach. Your data will also be used by Re-Threads for providing your regular updates on this opportunity. You also agree to the <a href="#">privacy policy</a> and <a href="#">terms of use</a> of Re-Threads.
+                        </label>
+                    </div>
+                </section>
+
+                <!-- Add this section after the "Additional Information" section -->
+<section class="form-section">
+    <h2 class="section-title">Portfolio Submission</h2>
+    
+    <div class="form-group">
+        <label>Upload Your Portfolio*</label>
+        <div class="upload-options">
+            <!-- AI Portfolio Assistance Option -->
+            <div class="upload-option ai-option">
+                <div class="option-header">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI Portfolio Assistance</h3>
+                    <span class="recommended-badge">Recommended</span>
+                </div>
+                <p>Let our AI help you organize and present your best work professionally</p>
+                <button type="button" class="btn btn-outline" onclick="window.location.href='/templates/portfolio.html'">
+                    Use AI Assistant
+                </button>
+                <P>Provide detailed answers to a few questions about yourself, and let our advanced AI system craft a comprehensive and polished professional portfolio tailored to showcase your skills, achievements, and experience — ready to be used across resumes, job applications, networking platforms, and more.</P>
+            </div>
+            
+            <!-- Or Divider -->
+            <div class="or-divider">
+                <span>OR</span>
+            </div>
+            
+            <!-- Manual Upload Option -->
+            <div class="upload-option manual-option">
+                <div class="option-header">
+                    <i class="fas fa-folder-open"></i>
+                    <h3>Upload Manually</h3>
+                </div>
+                <p>Upload your existing portfolio files (PDF, images, or documents)</p>
+                
+                <div class="upload-area" id="portfolioUploadArea">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Drag & drop your files here</p>
+                    <p class="small">or</p>
+                    <button type="button" class="btn btn-outline" id="browseFilesBtn">Browse Files</button>
+                    <input type="file" id="portfolioUpload" multiple style="display: none;" 
+                           accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.ppt,.pptx">
+                </div>
+                <div class="upload-preview" id="uploadPreview"></div>
+                
+                <div class="file-requirements">
+                    <p><i class="fas fa-info-circle"></i> Accepted formats: PDF, JPG, PNG, DOC, PPT</p>
+                    <p><i class="fas fa-database"></i> Max file size: 20MB</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+                
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-outline">Back</button>
+                   <!-- <button class="btn" onclick="alert('Congratulations! You\'ve successfully registered for the challenge.'); this.disabled=true; this.textContent='Joined!'">Join</button> -->
+                    <!-- <button type="submit" class="btn">Join</button> -->
+<a href="{{ url_for('register_challenge') }}" class="btn">Join </a>                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer (same as landing page) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="/templates/landing.html">Re-Threads</a>
+                    <p>Sustainable fashion through creative reuse</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/templates/landing.html">Home</a></li>
+                        <li><a href="/templates/landing.html#why-us">Why Us?</a></li>
+                        <li><a href="/templates/landing.html#for-students">For Students</a></li>
+                        <li><a href="/templates/landing.html#for-brands">For Brands</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Re-Threads. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+</html>

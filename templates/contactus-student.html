@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Contact | Re-Threads</title>
+    <link rel="stylesheet" href="/static/landing.css">
+    <link rel="stylesheet" href="/static/contactus-student.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+   <header class="header">
+        <div class="container">
+            <a href="/templates/student-dashboard.html" class="logo">Re-Threads</a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/templates/student-dashboard.html">Home</a></li>
+                     <li><a href="/templates/materials.html">Materials</a></li>
+                    <li><a href="/templates/myprojects.html">My Projects</a></li>
+                    <li><a href="/templates/contactus-student.html">Contact Us</a></li>
+                    <li class="profile-menu">
+    <button class="profile-btn">
+        <i class="fas fa-user"></i>
+    </button>
+    <div class="profile-dropdown">
+        <a href="/templates/stu-profile.html" class="dropdown-item">
+            <i class="fas fa-user-edit"></i> Edit Profile
+        </a>
+        <a href="/templates/my-requests.html" class="dropdown-item">
+            <i class="fas fa-clipboard-list"></i> My Requests
+        </a>
+        <a href="/templates/saved-materials.html" class="dropdown-item">
+            <i class="fas fa-bookmark"></i> Saved Materials
+        </a>
+        <a href="/templates/landing.html" class="dropdown-item">
+            <i class="fas fa-sign-out-alt"></i> Sign Out
+        </a>
+    </div>
+</li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="student-contact-container">
+        <div class="student-hero">
+            <div class="hero-content">
+                <h1>Student Support Center</h1>
+                <p class="subtitle">Get help with material requests, deliveries, and your student account</p>
+                <div class="student-badge">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Student Portal</span>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Student working with fabrics">
+            </div>
+        </div>
+
+        <div class="student-contact-content">
+            <div class="contact-form-container">
+                <h2><i class="fas fa-envelope"></i> Contact Our Student Team</h2>
+                
+                <form class="student-contact-form">
+                    <div class="form-group">
+                        <label for="student-fullname">Full Name*</label>
+                        <input type="text" id="student-fullname" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="student-email">Email*</label>
+                            <input type="email" id="student-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="student-id">Student ID (if applicable)</label>
+                            <input type="text" id="student-id">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="student-school">School/Institution*</label>
+                            <input type="text" id="student-school" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="student-program">Program</label>
+                            <input type="text" id="student-program" placeholder="Fashion Design, Textile Arts, etc.">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-reason">Reason for Contact*</label>
+                        <select id="contact-reason" required>
+                            <option value="" disabled selected>Select a reason</option>
+                            <option value="material-help">Need help finding materials</option>
+                            <option value="delivery-issue">Delivery problem</option>
+                            <option value="account-help">Account access issues</option>
+                            <option value="donate">Want to donate materials</option>
+                            <option value="feedback">Provide feedback</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" id="material-details" style="display:none;">
+                        <label for="needed-materials">What materials do you need?</label>
+                        <textarea id="needed-materials" rows="3" placeholder="Describe the type, quantity, and project details"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="student-message">Your Message*</label>
+                        <textarea id="student-message" rows="5" required placeholder="Please include any deadlines or urgent needs"></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-student">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="support-options">
+                <div class="support-card urgent-help">
+                    <h3><i class="fas fa-exclamation-circle"></i> Urgent Material Need?</h3>
+                    <p>For time-sensitive requests, please include:</p>
+                    <ul>
+                        <li>Project deadline date</li>
+                        <li>Specific material requirements</li>
+                        <li>Quantity needed</li>
+                    </ul>
+                    <div class="urgent-contact">
+                        <p><strong>Emergency Contact:</strong></p>
+                        <p><i class="fas fa-phone"></i> (555) 123-7890</p>
+                        <p><i class="fas fa-envelope"></i> emergency@re-threads.edu</p>
+                    </div>
+                </div>
+                
+                <div class="support-card resources">
+                    <h3><i class="fas fa-book-open"></i> Student Resources</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Material Request Guide</a></li>
+                        <li><a href="#"><i class="fas fa-video"></i> How-To Videos</a></li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i> FAQ Center</a></li>
+                        <li><a href="#"><i class="fas fa-calendar-check"></i> Workshop Schedule</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="student-testimonials">
+            <h2>Students Like You Said:</h2>
+            <div class="testimonial-carousel">
+                <!-- Testimonials would go here -->
+            </div>
+        </div>
+    </main>
+
+
+<footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#home">Re-Threads</a>
+                    <p>Sustainable fashion through creative reuse</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#why-us">Why Us?</a></li>
+                        <li><a href="#for-students">For Students</a></li>
+                        <li><a href="#for-Brands">For Brands</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Re-Threads. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>  
+
+    <script src="/script.js"></script>
+</body>
+</html>

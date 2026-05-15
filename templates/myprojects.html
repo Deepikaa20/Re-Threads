@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects | Re-Threads</title>
+    <link rel="stylesheet" href="/static/landing.css">
+    <link rel="stylesheet" href="/static/myprojects.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="#home" class="logo">Re-Threads</a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="{{ url_for('student_dashboard') }}">Home</a></li>
+                    <li><a href="/templates/materials.html">Materials</a></li>
+                    <li><a href="/templates/myprojects.html">My Projects</a></li>
+                    <li><a href="/templates/contactus-student.html">Contact Us</a></li>
+                    <li class="profile-menu">
+    <button class="profile-btn">
+        <i class="fas fa-user"></i>
+    </button>
+    <div class="profile-dropdown">
+        <a href="/templates/stu-profile.html" class="dropdown-item">
+            <i class="fas fa-user-edit"></i> Edit Profile
+        </a>
+        <a href="/templates/my-requests.html" class="dropdown-item">
+            <i class="fas fa-clipboard-list"></i> My Requests
+        </a>
+        <a href="saved-materials.html" class="dropdown-item">
+            <i class="fas fa-bookmark"></i> Saved Materials
+        </a>
+        <a href="landing.html" class="dropdown-item">
+            <i class="fas fa-sign-out-alt"></i> Sign Out
+        </a>
+    </div>
+</li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="projects-container">
+        <section class="projects-hero">
+            <div class="hero-content">
+                <h1>My Creative Projects</h1>
+                <p>Showcase your sustainable creations made with Re-Threads materials</p>
+                <button class="btn btn-primary" id="add-project-btn">
+                    <i class="fas fa-plus"></i> Add New Project
+                </button>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Sustainable fashion projects">
+            </div>
+        </section>
+
+        <section class="projects-toolbar">
+            <div class="search-filter">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search projects...">
+                </div>
+                <select class="category-filter">
+                    <option value="all">All Categories</option>
+                    <option value="apparel">Apparel</option>
+                    <option value="accessories">Accessories</option>
+                    <option value="home">Home Decor</option>
+                    <option value="art">Art</option>
+                    <option value="other">Other</option>
+                </select>
+                <select class="material-filter">
+                    <option value="all">All Materials</option>
+                    <option value="cotton">Cotton</option>
+                    <option value="silk">Silk</option>
+                    <option value="denim">Denim</option>
+                    <option value="wool">Wool</option>
+                    <option value="upcycled">Upcycled</option>
+                </select>
+            </div>
+            <div class="sort-options">
+                <span>Sort by:</span>
+                <button class="sort-btn active" data-sort="recent">Most Recent</button>
+                <button class="sort-btn" data-sort="popular">Most Popular</button>
+                <button class="sort-btn" data-sort="material">Material Type</button>
+            </div>
+        </section>
+
+        <section class="projects-grid" id="projects-gallery">
+            <!-- Project 1 -->
+            <div class="project-card" data-category="apparel" data-material="denim" data-date="2023-06-10" data-likes="24">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Denim jacket project">
+                    <div class="project-actions">
+                        <button class="like-btn"><i class="far fa-heart"></i> 24</button>
+                        <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Upcycled Denim Jacket</h3>
+                    <div class="project-meta">
+                        <span class="category">Apparel</span>
+                        <span class="date">June 10, 2023</span>
+                    </div>
+                    <p class="project-desc">Transformed old jeans into a stylish cropped jacket with embroidered details using Re-Threads denim scraps.</p>
+                    <div class="project-materials">
+                        <h4>Materials Used:</h4>
+                        <ul>
+                            <li>Denim scraps (3.5 yds)</li>
+                            <li>Assorted threads</li>
+                            <li>Vintage buttons</li>
+                        </ul>
+                    </div>
+                    <div class="project-skills">
+                        <span class="skill-tag">Sewing</span>
+                        <span class="skill-tag">Embroidery</span>
+                        <span class="skill-tag">Upcycling</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card" data-category="accessories" data-material="silk" data-date="2023-05-22" data-likes="42">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Silk scarf project">
+                    <div class="project-actions">
+                        <button class="like-btn"><i class="far fa-heart"></i> 42</button>
+                        <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Hand-Painted Silk Scarves</h3>
+                    <div class="project-meta">
+                        <span class="category">Accessories</span>
+                        <span class="date">May 22, 2023</span>
+                    </div>
+                    <p class="project-desc">Created a collection of sustainable scarves using Re-Threads silk remnants and natural dyes.</p>
+                    <div class="project-materials">
+                        <h4>Materials Used:</h4>
+                        <ul>
+                            <li>Silk remnants (5 yds)</li>
+                            <li>Natural dyes</li>
+                            <li>Wooden frames</li>
+                        </ul>
+                    </div>
+                    <div class="project-skills">
+                        <span class="skill-tag">Dyeing</span>
+                        <span class="skill-tag">Painting</span>
+                        <span class="skill-tag">Textile Design</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card" data-category="home" data-material="cotton" data-date="2023-04-15" data-likes="18">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1578991624414-276ef23a534f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Quilt project">
+                    <div class="project-actions">
+                        <button class="like-btn"><i class="far fa-heart"></i> 18</button>
+                        <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Memory Quilt</h3>
+                    <div class="project-meta">
+                        <span class="category">Home Decor</span>
+                        <span class="date">April 15, 2023</span>
+                    </div>
+                    <p class="project-desc">Made a commemorative quilt using cotton scraps from Re-Threads and repurposed clothing.</p>
+                    <div class="project-materials">
+                        <h4>Materials Used:</h4>
+                        <ul>
+                            <li>Cotton scraps (8 yds)</li>
+                            <li>Bamboo batting</li>
+                            <li>Assorted fabric pieces</li>
+                        </ul>
+                    </div>
+                    <div class="project-skills">
+                        <span class="skill-tag">Quilting</span>
+                        <span class="skill-tag">Patchwork</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card" data-category="art" data-material="wool" data-date="2023-03-28" data-likes="31">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Textile art project">
+                    <div class="project-actions">
+                        <button class="like-btn"><i class="far fa-heart"></i> 31</button>
+                        <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Textile Wall Hanging</h3>
+                    <div class="project-meta">
+                        <span class="category">Art</span>
+                        <span class="date">March 28, 2023</span>
+                    </div>
+                    <p class="project-desc">Wool yarns from Re-Threads combined with weaving techniques to create modern textile art.</p>
+                    <div class="project-materials">
+                        <h4>Materials Used:</h4>
+                        <ul>
+                            <li>Wool yarn (various colors)</li>
+                            <li>Wooden loom</li>
+                            <li>Cotton warp threads</li>
+                        </ul>
+                    </div>
+                    <div class="project-skills">
+                        <span class="skill-tag">Weaving</span>
+                        <span class="skill-tag">Fiber Art</span>
+                        <span class="skill-tag">Macramé</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project-card" data-category="apparel" data-material="upcycled" data-date="2023-02-14" data-likes="56">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1539533018447-63fcce2678e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Upcycled dress project">
+                    <div class="project-actions">
+                        <button class="like-btn"><i class="far fa-heart"></i> 56</button>
+                        <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Zero-Waste Cocktail Dress</h3>
+                    <div class="project-meta">
+                        <span class="category">Apparel</span>
+                        <span class="date">February 14, 2023</span>
+                    </div>
+                    <p class="project-desc">Designed using pattern techniques that eliminate fabric waste, made with Re-Threads silk remnants.</p>
+                    <div class="project-materials">
+                        <h4>Materials Used:</h4>
+                        <ul>
+                            <li>Silk remnants (4 yds)</li>
+                            <li>Vintage lace</li>
+                            <li>Upcycled zipper</li>
+                        </ul>
+                    </div>
+                    <div class="project-skills">
+                        <span class="skill-tag">Pattern Making</span>
+                        <span class="skill-tag">Draping</span>
+                        <span class="skill-tag">Sustainable Design</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add Project Modal -->
+        <div class="modal" id="add-project-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Add New Project</h2>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <form class="project-form">
+                    <div class="form-group">
+                        <label for="project-title">Project Title*</label>
+                        <input type="text" id="project-title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="project-category">Category*</label>
+                        <select id="project-category" required>
+                            <option value="" disabled selected>Select category</option>
+                            <option value="apparel">Apparel</option>
+                            <option value="accessories">Accessories</option>
+                            <option value="home">Home Decor</option>
+                            <option value="art">Art</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="project-date">Completion Date*</label>
+                        <input type="date" id="project-date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="project-description">Description*</label>
+                        <textarea id="project-description" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Project Images*</label>
+                        <div class="image-upload">
+                            <div class="upload-area" id="drop-zone">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag & drop images here or click to browse</p>
+                                <input type="file" id="project-images" multiple accept="image/*">
+                            </div>
+                            <div class="preview-grid" id="image-preview"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Materials Used (from Re-Threads)*</label>
+                        <div class="material-inputs">
+                            <div class="material-row">
+                                <input type="text" placeholder="Material name" class="material-name">
+                                <input type="text" placeholder="Quantity" class="material-qty">
+                                <button type="button" class="add-material"><i class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+                        <div class="materials-list" id="materials-list"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Skills/Techniques Used</label>
+                        <div class="skill-tags-input">
+                            <input type="text" id="skill-input" placeholder="Add skills (sewing, dyeing, etc.)">
+                            <div class="skill-tags" id="skill-tags"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline close-modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Project</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#home">Re-Threads</a>
+                    <p>Sustainable fashion through creative reuse</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#why-us">Why Us?</a></li>
+                        <li><a href="#for-students">For Students</a></li>
+                        <li><a href="#for-Brands">For Brands</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Re-Threads. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>

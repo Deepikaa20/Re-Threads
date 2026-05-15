@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard | Re-Threads</title>
+    <link rel="stylesheet" href="/static/landing.css">
+    <link rel="stylesheet" href="/static/analytics.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Chart.js for analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="/templates/landing.html" class="logo">Re-Threads</a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/templates/brands.html">Home</a></li>
+                     <li><a href="/templates/inventory.html">Inventory</a></li>
+                    <li><a href="/templates/requests.html">Requests</a></li>
+                    <li><a href="/templates/contactus-brand.html">Contact Us</a></li>
+                    <li class="brand-profile-menu">
+    <button class="brand-profile-btn">
+        <i class="fas fa-building"></i> <!-- Brand icon instead of person icon -->
+    </button>
+    <div class="brand-profile-dropdown">
+        <a href="/templates/brand-profile.html" class="dropdown-item">
+            <i class="fas fa-edit"></i> Edit Profile
+        </a>
+        <a href="/templates/track-order.html" class="dropdown-item">
+            <i class="fas fa-truck"></i> Track Orders
+        </a>
+        <!-- <a href="brand-/templates/materials.html" class="dropdown-item">
+            <i class="fas fa-box-open"></i> My Materials
+        </a> -->
+        <a href="/templates/landing.html" class="dropdown-item">
+            <i class="fas fa-sign-out-alt"></i> Sign Out
+        </a>
+    </div>
+</li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Analytics Main Content -->
+    <main class="analytics-dashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1>Your Impact Analytics</h1>
+                <div class="date-filter">
+                    <select id="time-period">
+                        <option value="7days">Last 7 Days</option>
+                        <option value="30days" selected>Last 30 Days</option>
+                        <option value="90days">Last 90 Days</option>
+                        <option value="year">This Year</option>
+                        <option value="all">All Time</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="impact-stats">
+                <div class="stat-card">
+                    <div class="stat-value">1,250</div>
+                    <div class="stat-label">Yards Donated</div>
+                    <div class="stat-change positive"><i class="fas fa-arrow-up"></i> 12% from last period</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">85</div>
+                    <div class="stat-label">Students Supported</div>
+                    <div class="stat-change positive"><i class="fas fa-arrow-up"></i> 8% from last period</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">3.2K</div>
+                    <div class="stat-label">Lbs Waste Diverted</div>
+                    <div class="stat-change positive"><i class="fas fa-arrow-up"></i> 15% from last period</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">24</div>
+                    <div class="stat-label">Designs Created</div>
+                    <div class="stat-change positive"><i class="fas fa-arrow-up"></i> 20% from last period</div>
+                </div>
+            </div>
+            
+            <div class="chart-row">
+                <div class="chart-container">
+                    <h2>Materials Distribution</h2>
+                    <canvas id="materialsChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h2>Requests Timeline</h2>
+                    <canvas id="requestsChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="chart-row">
+                <div class="chart-container full-width">
+                    <h2>Environmental Impact</h2>
+                    <canvas id="impactChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="student-projects">
+                <h2>Student Projects Using Your Materials</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80');">
+                            <div class="project-overlay">
+                                <button class="btn btn-small">View Project</button>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Zero-Waste Evening Dress</h3>
+                            <p class="student-name">Maria Chen, Parsons School</p>
+                            <p class="materials-used">Your materials: Organic Cotton Jersey</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80');">
+                            <div class="project-overlay">
+                                <button class="btn btn-small">View Project</button>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Upcycled Denim Jacket</h3>
+                            <p class="student-name">Jamal Williams, FIT</p>
+                            <p class="materials-used">Your materials: Recycled Polyester</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1560829675-11dec1d78910?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80');">
+                            <div class="project-overlay">
+                                <button class="btn btn-small">View Project</button>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Technical Outdoor Gear</h3>
+                            <p class="student-name">Alex Johnson, Central Saint Martins</p>
+                            <p class="materials-used">Your materials: Nylon Blend</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="/templates/landing.html">Re-Threads</a>
+                    <p>Sustainable fashion through creative reuse</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/templates/landing.html">Home</a></li>
+                        <li><a href="/templates/landing.html#why-us">Why Us?</a></li>
+                        <li><a href="/templates/landing.html#for-students">For Students</a></li>
+                        <li><a href="/templates/landing.html#for-brands">For Brands</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Re-Threads. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+</html>

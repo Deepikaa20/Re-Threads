@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Material | Re-Threads</title>
+    <link rel="stylesheet" href="/static/landing.css">
+    <link rel="stylesheet" href="/static/request-material.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="/templates/student-dashboard.html" class="logo">Re-Threads</a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="{{ url_for('student_dashboard') }}">Home</a></li>
+                    <li><a href="/templates/materials.html">Materials</a></li>
+                    <li><a href="/templates/myprojects.html">My Projects</a></li>
+                    <li><a href="/templates/contactus-student.html">Contact Us</a></li>
+                     <li class="profile-menu">
+    <button class="profile-btn">
+        <i class="fas fa-user"></i>
+    </button>
+    <div class="profile-dropdown">
+        <a href="/templates/stu-profile.html" class="dropdown-item">
+            <i class="fas fa-user-edit"></i> Edit Profile
+        </a>
+        <a href="/templates/my-requests.html" class="dropdown-item">
+            <i class="fas fa-clipboard-list"></i> My Requests
+        </a>
+        <a href="saved-materials.html" class="dropdown-item">
+            <i class="fas fa-bookmark"></i> Saved Materials
+        </a>
+         <a href="{{ url_for('logout') }}" class="dropdown-item">
+              <i class="fas fa-sign-out-alt"></i> Sign Out
+            </a>
+    </div>
+</li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Request Material Main Content -->
+    <main class="request-material">
+        <div class="container">
+            <div class="request-header">
+                <a href="/student-dashboard" class="btn btn-back">Back to Materials</a>
+
+                <h1>Request Material</h1>
+                <p class="subtitle">Complete this form to request materials for your project</p>
+            </div>
+            
+            <div class="request-container">
+                <div class="material-summary">
+                    <div class="material-preview" style="background-image: url('{{ material.image_url }}'); background-size: cover;"></div>
+
+                    <div class="material-info">
+                        <h2>{{ material.name }}</h2>
+                        <p class="brand">From: {{ material.brand_name }}</p>
+                        <div class="material-meta">
+                         <span class="quantity"><i class="fas fa-ruler-combined"></i> {{ material.quantity }} {{ material.unit }} available</span>
+                        <span class="category"><i class="fas fa-tag"></i> {{ material.type }}</span>
+                    </div>
+
+                    
+                </div>
+                
+                <form class="request-form" method="post" action="/request-material/{{ material.id }}">
+                    <div class="form-group">
+                        <label for="quantity">How much do you need? (in yards)</label>
+                        <input type="number" id="quantity" name="quantity" min="1" max="{{ material.quantity }}" required>
+<span class="hint">Maximum available: {{ material.quantity }} {{ material.unit }}</span>
+
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="purpose">What will you use this material for?</label>
+                        <select id="purpose" name="purpose" required>
+                            <option value="" disabled selected>Select purpose</option>
+                            <option value="school-project">School Project</option>
+                            <option value="personal-project">Personal Project</option>
+                            <option value="portfolio-piece">Portfolio Piece</option>
+                            <option value="competition-entry">Competition Entry</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="project-details">Tell us about your project</label>
+                        <textarea id="project-details" name="project-details" rows="4" required placeholder="Describe your project, design concept, and how you'll use this material..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="timeline">When do you need this material by?</label>
+                        <input type="date" id="timeline" name="timeline" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="duration">Estimated time to complete your project</label>
+                        <select id="duration" name="duration" required>
+                            <option value="" disabled selected>Select duration</option>
+                            <option value="1-2-weeks">1-2 weeks</option>
+                            <option value="2-4-weeks">2-4 weeks</option>
+                            <option value="1-2-months">1-2 months</option>
+                            <option value="3-6-months">3-6 months</option>
+                            <option value="longer">Longer than 6 months</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="special-requests">Any special requests or notes?</label>
+                        <textarea id="special-requests" name="special-requests" rows="3" placeholder="Specific color preferences, additional materials needed, etc."></textarea>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="agree-terms" name="agree-terms" required>
+                        <label for="agree-terms">I agree to use this material for its intended purpose and will credit the donor when appropriate</label>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-submit">Submit Request</button>
+                        <button type="button" class="btn-outline btn-save">Save Draft</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="/templates/landing.html">Re-Threads</a>
+                    <p>Sustainable fashion through creative reuse</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/templates/landing.html">Home</a></li>
+                        <li><a href="/templates/landing.html#why-us">Why Us?</a></li>
+                        <li><a href="/templates/landing.html#for-students">For Students</a></li>
+                        <li><a href="/templates/landing.html#for-brands">For Brands</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Re-Threads. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+</html>

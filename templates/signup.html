@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Re-Threads</title>
+    <link rel="stylesheet" href="/static/signup.css">
+    <link rel="stylesheet" href="/static/landing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section (same as landing page) -->
+    <header class="header">
+        <div class="container">
+            <a href="landing.html" class="logo">Re-Threads</a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="landing.html">Home</a></li>
+                    <li><a href="landing.html">Why Us?</a></li>
+                    <li><a href="landing.html">For Students</a></li>
+                    <li><a href="landing.html">For Brands</a></li>
+                    <li><a href="landing.html">Contact Us</a></li>
+                    <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+
+                    <li><a href="{{ url_for('signin') }}">Sign In</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Signup Section -->
+    <section class="signup-section">
+        <div class="container">
+            <div class="signup-card">
+                <h2>Sign up</h2>
+                <p class="subtitle">Get started for free. No credit card required.</p>
+                
+                <button class="social-btn">
+                    <i class="fab fa-google"></i>
+                    <span>Continue with Google</span>
+                </button>
+                
+                <div class="divider">
+                    <span>or</span>
+                </div>
+                
+                <form class="signup-form" method="POST" action="/signup">
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+
+                    <!-- Add this after the opening <form> tag -->
+                    <div class="form-group">
+                       <label for="user-type">I am a</label>
+                     <select id="user-type" name="user-type" required class="user-type-select">
+                        <option value="" disabled selected>Select your role</option>
+                        <option value="student">Student</option>
+                        <option value="brand">Brand Representative</option>
+                      </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-block">Continue</button>
+                </form>
+                
+                <p class="login-link">Already have an account? <a href="{{ url_for('signin') }}">Sign in</a></p>
+                
+                <p class="terms">By signing up for Re-Threads you acknowledge that you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as landing page) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="landing.html">Re-Threads</a>
+                    <p>Sustainable fashion through creative reuse</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="landing.html">Home</a></li>
+                        <li><a href="landing.html">Why Us?</a></li>
+                        <li><a href="landing.html">For Students</a></li>
+                        <li><a href="landing.html">For Brands</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Re-Threads. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | Re-Threads</title>
+    <link rel="stylesheet" href="/static/landing.css">
+    <link rel="stylesheet" href="/static/student-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</head>
+<body>
+    <!-- Header (same as landing page but with dashboard link) -->
+    <header class="header">
+        <div class="container">
+            <a href="/templates/landing.html" class="logo">Re-Threads</a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="student-dashboard.html">Home</a></li>
+                    <li><a href="student-dashboard.html" class="active">Dashboard</a></li>
+                    <li><a href="{{ url_for('materials') }}">Materials</a></li>
+                    <li><a href="{{ url_for('my_projects') }}">My Projects</a></li>
+
+                    <li class="profile-menu">
+    <button class="profile-btn">
+        <i class="fas fa-user"></i>
+    </button>
+    <div class="profile-dropdown">
+        <a href="/templates/stu-profile.html" class="dropdown-item">
+            <i class="fas fa-user-edit"></i> Edit Profile
+        </a>
+        <a href="/templates/my-requests.html" class="dropdown-item">
+            <i class="fas fa-clipboard-list"></i> My Requests
+        </a>
+        <a href="saved-materials.html" class="dropdown-item">
+            <i class="fas fa-bookmark"></i> Saved Materials
+        </a>
+                    <a href="{{ url_for('logout') }}" class="dropdown-item">
+              <i class="fas fa-sign-out-alt"></i> Sign Out
+            </a>
+    </div>
+</li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+<section class="ai-banner">
+    <a href="/portfolio" class="ai-banner-link">
+
+        <span class="new-feature">New Feature!</span>
+        <span class="ai-text">AI Portfolio Assistance</span>
+        <span class="ai-emoji">✨</span>
+    </a>
+</section>
+
+    <!-- Dashboard Main Content -->
+    <main class="dashboard-container">
+        <!-- Welcome Banner -->
+        <section class="welcome-banner">
+            <div class="container">
+                <div class="welcome-content">
+                    <h1>Welcome back, <span class="user-name">{{ name }}</span>!</h1>
+                    <p>You have <strong>3 active requests</strong> and <strong>2 new material matches</strong></p>
+                    <button class="btn btn-accent">View Materials</button>
+                </div>
+                <div class="welcome-image">
+                    <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Fabric materials">
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Stats -->
+        <section class="quick-stats">
+            <div class="container">
+                <div class="stat-card">
+                    <i class="fas fa-box-open"></i>
+                    <h3>Materials Received</h3>
+                    <p class="stat-value">12</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Projects Created</h3>
+                    <p class="stat-value">7</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Favorites</h3>
+                    <p class="stat-value">15</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-award"></i>
+                    <h3>Design Challenges</h3>
+                    <p class="stat-value">3</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Activity -->
+        <section class="recent-activity">
+            <div class="container">
+                <h2 class="section-title">Recent Activity</h2>
+                <div class="activity-grid">
+                    <div class="activity-card">
+                        <div class="activity-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h3>Request Approved</h3>
+                            <p>Your request for silk fabric has been approved by BrandX</p>
+                            <span class="activity-time">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h3>New Materials Added</h3>
+                            <p>15 new sustainable materials available from EcoFabrics</p>
+                            <span class="activity-time">1 day ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h3>Challenge Winner</h3>
+                            <p>Your design was selected in the Sustainable Fashion Challenge</p>
+                            <span class="activity-time">3 days ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommended Materials -->
+        <!-- <section class="recommended-materials">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Recommended For You</h2>
+                    <a href="materials.html" class="view-all">View All</a>
+                </div>
+                <div class="materials-grid">
+                    <div class="material-card">
+                        <div class="material-image">
+                            <img src="https://images.unsplash.com/photo-1563170351-82e3809e0a6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Organic Cotton">
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="material-info">
+                            <h3>Organic Cotton</h3>
+                            <p class="brand">From: GreenTextiles</p>
+                            <div class="material-meta">
+                                <span class="quantity">25 yards available</span>
+                                <span class="category">Natural Fiber</span>
+                            </div>
+                            <button class="btn btn-small">Request Material</button>
+                        </div>
+                    </div>
+                    <div class="material-card">
+                        <div class="material-image">
+                            <img src="https://images.unsplash.com/photo-1532446998055-1013b3b7d1c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Recycled Polyester">
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="material-info">
+                            <h3>Recycled Polyester</h3>
+                            <p class="brand">From: EcoFabrics</p>
+                            <div class="material-meta">
+                                <span class="quantity">15 yards available</span>
+                                <span class="category">Recycled Material</span>
+                            </div>
+                            <button class="btn btn-small">Request Material</button>
+                        </div>
+                    </div>
+                    <div class="material-card">
+                        <div class="material-image">
+                            <img src="https://images.unsplash.com/photo-1560829675-11dec1d78910?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Linen Blend">
+                            <button class="favorite-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="material-info">
+                            <h3>Linen Blend</h3>
+                            <p class="brand">From: SustainableTextiles</p>
+                            <div class="material-meta">
+                                <span class="quantity">8 yards available</span>
+                                <span class="category">Natural Fiber</span>
+                            </div>
+                            <button class="btn btn-small">Request Material</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Upcoming Challenges -->
+        <section class="challenges-section">
+            <div class="container">
+                <h2 class="section-title">Design Challenges</h2>
+                <div class="challenge-card">
+                    <div class="challenge-image">
+                        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Sustainable Fashion Challenge">
+                    </div>
+                    <div class="challenge-content">
+                        <h3>Sustainable Fashion Challenge</h3>
+                        <p>Create a zero-waste design using deadstock materials. Winners get featured in Eco Fashion Week!</p>
+                        <div class="challenge-meta">
+                            <span class="deadline"><i class="far fa-calendar-alt"></i> Deadline: June 30, 2023</span>
+                            <span class="participants"><i class="fas fa-users"></i> 45 participants</span>
+                        </div>
+<a href="{{ url_for('join_challenge') }}" class="btn">Join Challenge</a>                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- <div class="dashboard-content">
+            <div class="welcome-section">
+                <h1>Welcome, {{ name }}!</h1>
+                <p>Browse available materials and start your sustainable design journey.</p>
+            </div> -->
+
+            <div class="available-materials">
+                <h2>Available Materials</h2>
+                <div class="materials-grid">
+                    {% if available_materials %}
+                        {% for material in available_materials %}
+                        <div class="material-card">
+                            <div class="material-image" style="background-image: url('{{ material.image_url if material.image_url else 'https://ui-avatars.com/api/?name=' + material.material_name + '&background=5d4e6d&color=fff' }}');">
+                                <span class="status-badge available">Available</span>
+                            </div>
+                            <div class="material-info">
+                                <div class="brand-info">
+                                    <img src="{{ material.logo_url if material.logo_url else 'https://ui-avatars.com/api/?name=' + material.brand_name + '&background=5d4e6d&color=fff' }}" alt="{{ material.brand_name }}" class="brand-logo">
+                                    <span class="brand-name">{{ material.brand_name }}</span>
+                                </div>
+                                <h3>{{ material.material_name }}</h3>
+                                <p class="material-type">{{ material.material_type }}</p>
+                                <div class="material-details">
+                                    <span class="quantity">{{ material.quantity }} {{ material.unit }}</span>
+                                    <span class="condition">{{ material.material_condition }}</span>
+                                </div>
+                                <p class="description">{{ material.description }}</p>
+                                <a href="/request-material/{{ material.id }}" class="btn btn-primary request-material">
+                                <i class="fas fa-hand-holding-heart"></i> Request Material
+                                </a>
+
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="empty-state">
+                            <i class="fas fa-box-open"></i>
+                            <h2>No Materials Available</h2>
+                            <p>Check back later for new materials from our partner brands.</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (same as landing page) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="landing.html">Re-Threads</a>
+                    <p>Sustainable fashion through creative reuse</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="landing.html">Home</a></li>
+                        <li><a href="landing.html">Why Us?</a></li>
+                        <li><a href="landing.html">For Students</a></li>
+                        <li><a href="landing.html">For Brands</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Re-Threads. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function requestMaterial(id) {
+            // TODO: Implement material request functionality
+            console.log('Request material:', id);
+        }
+    </script>
+</body>
+</html>
+
+<!-- AI portfolio assistance -->

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Materials | Re-Threads</title>
+    <link rel="stylesheet" href="/static/landing.css">
+    <link rel="stylesheet" href="/static/materials.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="/templates/landing.html" class="logo">Re-Threads</a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="{{ url_for('student_dashboard') }}">Home</a></li>
+                    <li><li><a href="{{ url_for('materials') }}">Materials</a></li></li>
+                    <li><a href="/templates/myprojects.html">My Projects</a></li>
+                    <li><a href="/templates/contactus-student.html">Contact Us</a></li>
+                    <li class="profile-menu">
+    <button class="profile-btn">
+        <i class="fas fa-user"></i>
+    </button>
+    <div class="profile-dropdown">
+        <a href="/templates/stu-profile.html" class="dropdown-item">
+            <i class="fas fa-user-edit"></i> Edit Profile
+        </a>
+        <a href="/templates/my-requests.html" class="dropdown-item">
+            <i class="fas fa-clipboard-list"></i> My Requests
+        </a>
+        <a href="/templates/saved-materials.html" class="dropdown-item">
+            <i class="fas fa-bookmark"></i> Saved Materials
+        </a>
+        <a href="/templates/landing.html" class="dropdown-item">
+            <i class="fas fa-sign-out-alt"></i> Sign Out
+        </a>
+    </div>
+</li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Materials Main Content -->
+    <main class="materials-listing">
+        <div class="container">
+            <div class="materials-header">
+                <h1>Available Materials</h1>
+                <div class="materials-filter">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search materials...">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="filter-tabs">
+                        <button class="filter-tab active">All Materials</button>
+                        <button class="filter-tab">Fabrics</button>
+                        <button class="filter-tab">Trims</button>
+                        <button class="filter-tab">Notions</button>
+                    </div>
+                    <div class="sort-options">
+                        <select>
+                            <option>Sort by: Newest</option>
+                            <option>Sort by: Most Popular</option>
+                            <option>Sort by: Quantity Available</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+           <div class="materials-grid">
+                <!-- Material Card 1 -->
+                <div class="material-card">
+                    <div class="material-image" > <img src="/static/images/organiccotton.jpeg" alt="Organic Cotton" height="220px" width="402.45px"></div>
+                    <div class="material-details">
+                        <div class="material-header">
+                            <h3>Organic Cotton Jersey</h3>
+                            <span class="material-quantity">125 yards available</span>
+                        </div>
+                        <div class="material-brand">
+                            <i class="fas fa-tag"></i> Donated by: EcoFabrics Co.
+                        </div>
+                        <div class="material-specs">
+                            <div class="spec">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>Width: 60"</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-weight-hanging"></i>
+                                <span>Weight: Medium</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-palette"></i>
+                                <span>Color: Lilac</span>
+                            </div>
+                        </div>
+                        <div class="material-description">
+                            High-quality organic cotton jersey with excellent drape and stretch. Perfect for sustainable fashion projects.
+                        </div>
+                        <div class="material-actions">
+                            <button class="btn btn-request" onclick="window.location.href='/templates/request-material.html'">Request Material</button>
+                            <button class="btn-outline btn-save"><i class="far fa-bookmark"></i> Save</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Material Card 2 -->
+                <div class="material-card">
+                    <div class="material-image"><img src="/static/images/Recycled Polyester.jpeg" alt="Recycled Polyester Twill" height="220px" width="402.45px"></div>
+                    <div class="material-details">
+                        <div class="material-header">
+                            <h3>Recycled Polyester Twill</h3>
+                            <span class="material-quantity">85 yards available</span>
+                        </div>
+                        <div class="material-brand">
+                            <i class="fas fa-tag"></i> Donated by: GreenTextiles Inc.
+                        </div>
+                        <div class="material-specs">
+                            <div class="spec">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>Width: 58"</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-weight-hanging"></i>
+                                <span>Weight: Heavy</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-palette"></i>
+                                <span>Color: Coral</span>
+                            </div>
+                        </div>
+                        <div class="material-description">
+                            Durable recycled polyester twill made from 100% post-consumer plastic bottles. Great for outerwear and bags.
+                        </div>
+                        <div class="material-actions">
+                            <button class="btn btn-request" onclick="window.location.href='/templates/request-material.html'">Request Material</button>
+                            <button class="btn-outline btn-save"><i class="far fa-bookmark"></i> Save</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Material Card 3 -->
+                <div class="material-card">
+                    <div class="material-image"> <img src="/static/images/Deadstock Silk Charmeuse.jpeg" alt="Deadstock Silk Charmeuse" height="220px" width="402.45px"></div>
+                    <div class="material-details">
+                        <div class="material-header">
+                            <h3>Deadstock Silk Charmeuse</h3>
+                            <span class="material-quantity">42 yards available</span>
+                        </div>
+                        <div class="material-brand">
+                            <i class="fas fa-tag"></i> Donated by: Luxe Fabrics
+                        </div>
+                        <div class="material-specs">
+                            <div class="spec">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>Width: 54"</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-weight-hanging"></i>
+                                <span>Weight: Light</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-palette"></i>
+                                <span>Color: Lavender</span>
+                            </div>
+                        </div>
+                        <div class="material-description">
+                            Luxury deadstock silk charmeuse with beautiful drape and luster. Limited quantity available.
+                        </div>
+                        <div class="material-actions">
+                            <button class="btn btn-request" onclick="window.location.href='/templates/request-material.html'">Request Material</button>
+                            <button class="btn-outline btn-save"><i class="far fa-bookmark"></i> Save</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Material Card 4 -->
+                <div class="material-card">
+                    <div class="material-image" ><img src="/static/images/Organic Cotton Denim.jpeg" alt="Deadstock Silk Charmeuse" height="220px" width="402.45px"></div>
+                    <div class="material-details">
+                        <div class="material-header">
+                            <h3>Organic Cotton Denim</h3>
+                            <span class="material-quantity">68 yards available</span>
+                        </div>
+                        <div class="material-brand">
+                            <i class="fas fa-tag"></i> Donated by: Blue Horizon Denim
+                        </div>
+                        <div class="material-specs">
+                            <div class="spec">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>Width: 62"</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-weight-hanging"></i>
+                                <span>Weight: Medium-Heavy</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-palette"></i>
+                                <span>Color: Indigo</span>
+                            </div>
+                        </div>
+                        <div class="material-description">
+                            Premium organic cotton denim, 12oz weight. Perfect for sustainable jeans and jackets.
+                        </div>
+                        <div class="material-actions">
+                            <button class="btn btn-request" onclick="window.location.href='/templates/request-material.html'">Request Material</button>
+                            <button class="btn-outline btn-save"><i class="far fa-bookmark"></i> Save</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Material Card 5 -->
+                <div class="material-card">
+                    <div class="material-image"><img src="/static/images/Linen Blend.jpeg" alt="Linen-Cotton Blend" height="220px" width="402.45px"></div>
+                    <div class="material-details">
+                        <div class="material-header">
+                            <h3>Linen-Cotton Blend</h3>
+                            <span class="material-quantity">92 yards available</span>
+                        </div>
+                        <div class="material-brand">
+                            <i class="fas fa-tag"></i> Donated by: Natural Textiles Co.
+                        </div>
+                        <div class="material-specs">
+                            <div class="spec">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>Width: 56"</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-weight-hanging"></i>
+                                <span>Weight: Medium</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-palette"></i>
+                                <span>Color: Blush</span>
+                            </div>
+                        </div>
+                        <div class="material-description">
+                            Beautiful 55% linen, 45% cotton blend with natural texture. Ideal for summer garments.
+                        </div>
+                        <div class="material-actions">
+                            <button class="btn btn-request" onclick="window.location.href='/templates/request-material.html'">Request Material</button>
+                            <button class="btn-outline btn-save"><i class="far fa-bookmark"></i> Save</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Material Card 6 -->
+                <div class="material-card">
+                    <div class="material-image"><img src="/static/images/Tencel Twill.jpeg" alt="Tencel Twill" height="220px" width="402.45px"></div>
+                    <div class="material-details">
+                        <div class="material-header">
+                            <h3>Tencel Twill</h3>
+                            <span class="material-quantity">75 yards available</span>
+                        </div>
+                        <div class="material-brand">
+                            <i class="fas fa-tag"></i> Donated by: Sustainable Fabrics Ltd.
+                        </div>
+                        <div class="material-specs">
+                            <div class="spec">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>Width: 58"</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-weight-hanging"></i>
+                                <span>Weight: Medium</span>
+                            </div>
+                            <div class="spec">
+                                <i class="fas fa-palette"></i>
+                                <span>Color: Sage</span>
+                            </div>
+                        </div>
+                        <div class="material-description">
+                            Eco-friendly Tencel twill with excellent drape and breathability. Made from sustainably sourced wood pulp.
+                        </div>
+                        <div class="material-actions">
+                            <button class="btn btn-request" onclick="window.location.href='/templates/request-material.html'">Request Material</button>
+                            <button class="btn-outline btn-save"><i class="far fa-bookmark"></i> Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="pagination">
+                <button class="btn-outline"><i class="fas fa-chevron-left"></i> Previous</button>
+                <div class="page-numbers">
+                    <button class="active">1</button>
+                    <button>2</button>
+                    <button>3</button>
+                </div>
+                <button class="btn-outline">Next <i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="/templates/landing.html">Re-Threads</a>
+                    <p>Sustainable fashion through creative reuse</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/templates/landing.html">Home</a></li>
+                        <li><a href="/templates/landing.html#why-us">Why Us?</a></li>
+                        <li><a href="/templates/landing.html#for-students">For Students</a></li>
+                        <li><a href="/templates/landing.html#for-brands">For Brands</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Re-Threads. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+</html>

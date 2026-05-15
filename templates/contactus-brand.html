@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Contact | Re-Threads</title>
+    <link rel="stylesheet" href="/static/landing.css">
+    <link rel="stylesheet" href="/static/contactus-brand.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/templates/brands.html" class="logo">Re-Threads</a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/templates/brands.html">Home</a></li>
+                     <li><a href="/templates/inventory.html">Inventory</a></li>
+                    <li><a href="/templates/requests.html">Requests</a></li>
+                    <li><a href="/templates/contactus-brand.html">Contact Us</a></li>
+                    <li class="brand-profile-menu">
+    <button class="brand-profile-btn">
+        <i class="fas fa-building"></i> <!-- Brand icon instead of person icon -->
+    </button>
+    <div class="brand-profile-dropdown">
+        <a href="/templates/brand-profile.html" class="dropdown-item">
+            <i class="fas fa-edit"></i> Edit Profile
+        </a>
+        <a href="/templates/track-order.html" class="dropdown-item">
+            <i class="fas fa-truck"></i> Track Orders
+        </a>
+        <!-- <a href="brand-/templates/materials.html" class="dropdown-item">
+            <i class="fas fa-box-open"></i> My Materials
+        </a> -->
+        <a href="/templates/landing.html" class="dropdown-item">
+            <i class="fas fa-sign-out-alt"></i> Sign Out
+        </a>
+    </div>
+</li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="brand-contact-container">
+        <div class="brand-hero">
+            <div class="hero-content">
+                <h1>Brand Partnership Portal</h1>
+                <p class="subtitle">Connect with us about material donations, sustainability programs, and corporate partnerships</p>
+                <div class="brand-badge">
+                    <i class="fas fa-building"></i>
+                    <span>Brand Services</span>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Sustainable fashion materials">
+            </div>
+        </div>
+
+        <div class="brand-contact-content">
+            <div class="contact-form-container">
+                <h2><i class="fas fa-handshake"></i> Partner With Us</h2>
+                
+                <form class="brand-contact-form">
+                    <div class="form-group">
+                        <label for="company-name">Company Name*</label>
+                        <input type="text" id="company-name" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact-name">Your Name*</label>
+                            <input type="text" id="contact-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="job-title">Job Title*</label>
+                            <input type="text" id="job-title" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact-email">Email*</label>
+                            <input type="email" id="contact-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-phone">Phone</label>
+                            <input type="tel" id="contact-phone">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="inquiry-type">Type of Inquiry*</label>
+                        <select id="inquiry-type" required>
+                            <option value="" disabled selected>Select inquiry type</option>
+                            <option value="material-donation">Material Donation</option>
+                            <option value="sustainability">Sustainability Partnership</option>
+                            <option value="corporate">Corporate Sponsorship</option>
+                            <option value="logistics">Logistics Question</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" id="material-section" style="display:none;">
+                        <label>Materials Available for Donation</label>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="fabrics" name="material-type" value="fabrics">
+                                <label for="fabrics">Fabrics</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="trims" name="material-type" value="trims">
+                                <label for="trims">Trims & Notions</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="yarns" name="material-type" value="yarns">
+                                <label for="yarns">Yarns</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="leather" name="material-type" value="leather">
+                                <label for="leather">Leather/Alternatives</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="other-materials" name="material-type" value="other">
+                                <label for="other-materials">Other (specify below)</label>
+                            </div>
+                        </div>
+                        <textarea id="material-details" rows="3" placeholder="Please describe materials, quantities, and conditions"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="brand-message">Your Message*</label>
+                        <textarea id="brand-message" rows="5" required placeholder="Tell us about your partnership interest"></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-brand">
+                            <i class="fas fa-paper-plane"></i> Submit Inquiry
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="partnership-info">
+                <div class="info-card">
+                    <h3><i class="fas fa-award"></i> Benefits of Partnering</h3>
+                    <ul>
+                        <li>Sustainability reporting documentation</li>
+                        <li>Tax deduction receipts</li>
+                        <li>Brand recognition in our network</li>
+                        <li>Impact metrics on your donations</li>
+                        <li>Custom partnership opportunities</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3><i class="fas fa-truck"></i> Donation Logistics</h3>
+                    <p>We offer several options for material donations:</p>
+                    <ul>
+                        <li><strong>Local Pickup:</strong> We'll arrange collection</li>
+                        <li><strong>Shipping:</strong> Pre-paid labels available</li>
+                        <li><strong>Bulk Donations:</strong> Special handling for large quantities</li>
+                    </ul>
+                    <div class="logistics-contact">
+                        <p><strong>Logistics Team:</strong></p>
+                        <p><i class="fas fa-envelope"></i> logistics@re-threads.com</p>
+                        <p><i class="fas fa-phone"></i> (555) 987-1234</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="partner-logos">
+            <h2>Our Valued Partners</h2>
+            <div class="logo-grid">
+                <!-- Partner logos would go here -->
+            </div>
+        </div>
+    </main>
+
+<footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="/templates/brands.html">Re-Threads</a>
+                    <p>Sustainable fashion through creative reuse</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/templates/brands.html">Home</a></li>
+                        <li><a href="/templates/landing.html#why-us">Why Us?</a></li>
+                        <li><a href="/templates/landing.html#for-students">For Students</a></li>
+                        <li><a href="/templates/landing.html#for-Brands">For Brands</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Re-Threads. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer> 
+
+    <script src="/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re-Threads | Connecting Deadstock with Designers</title>
+    <link rel="stylesheet" href="/static/landing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <a href="#home" class="logo">Re-Threads</a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#why-us">Why Us?</a></li>
+                    <li><a href="#for-students">For Students</a></li>
+                    <li><a href="#for-Brands">For Brands</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="{{ url_for('signup') }}" class="btn">Sign Up</a></li>
+                    <li><a href="{{ url_for('signin') }}" class="btn-outline">Sign In</a></li>  
+
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+   <!-- AI Portfolio Assistance Banner -->
+    <!-- <section class="ai-banner">
+        <a href="signin.html" class="ai-banner-link">
+            <span class="new-feature">New Feature!</span>
+            <span class="ai-text">Portfolio Assistance</span>
+            <span class="ai-emoji">✨</span>
+        </a>
+    </section> -->
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate__animated animate__fadeInUp" data-wow-delay="0.1s">
+                    <span class="text-stroke">Transforming</span>
+                    <span class="text-reveal">Deadstock into Design Opportunities</span>
+                </h1>
+                <p class="animate__animated animate__fadeInUp" data-wow-delay="0.3s">Bridging the gap between fashion brands with excess materials and the next generation of designers</p>
+                <div class="hero-buttons animate__animated animate__fadeInUp" data-wow-delay="0.5s">
+                    <a href="#why-us" class="btn btn-magnetic">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-down"></i>
+                    </a>
+                    <div class="scroll-hint">
+                        <!-- <span>Scroll</span> -->
+                        <div class="scroll-line"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-container">
+                    <div class="image-reveal"></div>
+                    <img src="/static/images/ds1.jpeg" alt="Fashion materials" class="parallax-img">
+                </div>
+                <div class="hero-shape-1"></div>
+                <div class="hero-shape-2"></div>
+            </div>
+        </div>
+        <div class="hero-scroll-line"></div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section id="why-us" class="why-us">
+        <div class="section-header">
+            <h2 class="section-title">
+                <span class="title-number">01</span>
+                <span class="title-text">Why Choose Re-Threads?</span>
+            </h2>
+            <div class="section-subtitle">Discover the benefits of our sustainable platform</div>
+        </div>
+        <div class="benefits">
+            <div class="benefit-card" data-tilt>
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-recycle"></i>
+                        <h3>Sustainable Solution</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Reduce textile waste by giving deadstock materials a second life through creative reuse.</p>
+                        <div class="card-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="benefit-card" data-tilt>
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Educational Resource</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Provide students with access to diverse, real-world materials for their projects.</p>
+                        <div class="card-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="benefit-card" data-tilt>
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-building"></i>
+                        <h3>Cost Effective</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Brands can access quality materials at minimal costs for their programs.</p>
+                        <div class="card-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="benefit-card" data-tilt>
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Brand Benefits</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Companies gain sustainability credentials and tax benefits for material donations.</p>
+                        <div class="card-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="why-us-shape"></div>
+    </section>
+
+    <!-- For Students Section -->
+    <section id="for-students" class="feature-section">
+        <div class="container">
+            <div class="feature-content">
+                <div class="section-header left-align">
+                    <h2 class="section-title">
+                        <span class="title-number">02</span>
+                        <span class="title-text">For Students</span>
+                    </h2>
+                    <div class="section-subtitle">Unlock your creative potential</div>
+                </div>
+                <div class="feature-list">
+                    <div class="feature-point">
+                        <div class="point-number">01</div>
+                        <div class="point-content">
+                            <h3>Access to premium fabrics</h3>
+                            <p>Get high-quality materials at no cost for your projects</p>
+                        </div>
+                    </div>
+                    <div class="feature-point">
+                        <div class="point-number">02</div>
+                        <div class="point-content">
+                            <h3>Diverse textile selection</h3>
+                            <p>Experiment with a wide variety of fabrics and materials</p>
+                        </div>
+                    </div>
+                    <div class="feature-point">
+                        <div class="point-number">03</div>
+                        <div class="point-content">
+                            <h3>Portfolio building</h3>
+                            <p>Create impressive work with real industry materials</p>
+                        </div>
+                    </div>
+                    <div class="feature-point">
+                        <div class="point-number">04</div>
+                        <div class="point-content">
+                            <h3>Showcase platform</h3>
+                            <p>Display your sustainable designs to potential employers</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="{{ url_for('signup') }}">Sign Up</a>
+                <a href="/templates/signup.html" class="btn btn-magnetic">
+                    <span>Student Registration</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="feature-image">
+                <div class="image-stack">
+                    <div class="stack-item stack-item-1" data-depth="0.2">
+                        <img src="/static/images/st.jpeg" alt="Fashion student working">
+                    </div>
+                    <!-- <div class="stack-item stack-item-2" data-depth="0.4">
+                        <img src="/static/images/stu.jpeg" alt="Fabric samples">
+                    </div> -->
+                    <!-- <div class="stack-item stack-item-3" data-depth="0.1">
+                        <img src="https://images.unsplash.com/photo-1554412933-514a83d2f3c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Design sketches">
+                    </div> -->
+                </div>
+                <div class="student-shape-1"></div>
+                <div class="student-shape-2"></div>
+            </div>
+        </div>
+        <div class="feature-section-line"></div>
+    </section>
+
+    <!-- For Brands Section -->
+    <section id="for-brands" class="feature-section alt">
+        <div class="container">
+            <div class="feature-image">
+                <div class="brand-image-container">
+                    <div class="image-mask-reveal"></div>
+                    <img src="/static/images/b2.jpeg" alt="Fashion brand materials" class="parallax-img">
+                </div>
+                <div class="brand-shape-1"></div>
+                <div class="brand-shape-2"></div>
+            </div>
+            <div class="feature-content">
+                <div class="section-header left-align">
+                    <h2 class="section-title">
+                        <span class="title-number">03</span>
+                        <span class="title-text">For Brands</span>
+                    </h2>
+                    <div class="section-subtitle">Transform your deadstock into opportunities</div>
+                </div>
+                <div class="feature-list">
+                    <div class="feature-point">
+                        <div class="point-number">01</div>
+                        <div class="point-content">
+                            <h3>Deadstock management</h3>
+                            <p>Responsibly manage your excess inventory</p>
+                        </div>
+                    </div>
+                    <div class="feature-point">
+                        <div class="point-number">02</div>
+                        <div class="point-content">
+                            <h3>Sustainability credentials</h3>
+                            <p>Enhance your brand's eco-friendly reputation</p>
+                        </div>
+                    </div>
+                    <div class="feature-point">
+                        <div class="point-number">03</div>
+                        <div class="point-content">
+                            <h3>Support emerging talent</h3>
+                            <p>Contribute to the next generation of designers</p>
+                        </div>
+                    </div>
+                    <div class="feature-point">
+                        <div class="point-number">04</div>
+                        <div class="point-content">
+                            <h3>Cost reduction</h3>
+                            <p>Lower waste management expenses</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="/templates//signup.html" class="btn btn-magnetic">
+                    <span>Brand Registration</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        <div class="feature-section-line alt"></div>
+    </section>
+
+    <!-- Stats Section -->
+    <!-- <section class="stats-section">
+        <div class="container">
+            <div class="stat-item">
+                <div class="stat-number" data-count="500">0</div>
+                <div class="stat-label">Materials Available</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-count="1200">0</div>
+                <div class="stat-label">Students Helped</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-count="75">0</div>
+                <div class="stat-label">Partner Brands</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-count="2500">0</div>
+                <div class="stat-label">Kg Waste Saved</div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-number">04</span>
+                    <span class="title-text">Get In Touch</span>
+                </h2>
+                <div class="section-subtitle">Let's create sustainable fashion together</div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>contact@re-threads.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p>+91 987-123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Address</h3>
+                            <p>123 Fashion Ave, Banjara Hills, IND 10001</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                        <span class="input-highlight"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                        <span class="input-highlight"></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" required></textarea>
+                        <span class="input-highlight"></span>
+                    </div>
+                    <button type="submit" class="btn btn-magnetic">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="contact-shape"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#home">Re-Threads</a>
+                    <p>Sustainable fashion through creative reuse</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#why-us">Why Us?</a></li>
+                        <li><a href="#for-students">For Students</a></li>
+                        <li><a href="#for-Brands">For Brands</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Re-Threads. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+<!-- AI portfolio assistance  -->

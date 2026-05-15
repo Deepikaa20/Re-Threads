@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Dashboard | Re-Threads</title>
+    <link rel="stylesheet" href="/static/landing.css">
+    <link rel="stylesheet" href="/static/brands.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</head>
+<body>
+    <!-- Header (brand version) -->
+    <header class="header">
+        <div class="container">
+            <a href="/templates/landing.html" class="logo">Re-Threads</a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/templates/landing.html">Home</a></li>
+                    <li><a href="brand-profile.html" class="active">Dashboard</a></li>
+                    <li><a href="inventory.html">Inventory</a></li>
+                    <li><a href="requests.html">Requests</a></li>
+                    <li><a href="brand-profile.html" class="user-menu">
+                        <img src="https://ui-avatars.com/api/?name=Brand+User&background=5d4e6d&color=fff" alt="Profile" class="profile-pic">
+                    </a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Brand Dashboard Main Content -->
+    <main class="brand-dashboard">
+        <!-- Impact Summary -->
+        <section class="impact-banner">
+            <div class="container">
+                <div class="impact-content">
+                    <h1>Welcome, {{ brand_name or 'Brand' }}!</h1>
+                    <div class="impact-stats">
+                        <div class="impact-stat">
+                            <span class="stat-value">{{ inventory_items|length if inventory_items else 0 }}</span>
+                            <span class="stat-label">materials listed</span>
+                        </div>
+                        <div class="impact-stat">
+                            <span class="stat-value">{{ pending_requests or 0 }}</span>
+                            <span class="stat-label">pending requests</span>
+                        </div>
+                        <div class="impact-stat">
+                            <span class="stat-value">0</span>
+                            <span class="stat-label">materials donated</span>
+                        </div>
+                    </div>
+                    <a href="{{ url_for('add_material') }}" class="btn btn-accent">Add New Materials</a>
+                </div>
+                <div class="impact-visual">
+                    <div class="impact-badge">
+                        <i class="fas fa-leaf"></i>
+                        <span>Sustainable Partner Since 2022</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+<section class="quick-actions">
+    <div class="container">
+        <h2 class="section-title">Quick Actions</h2>
+        <div class="action-grid">
+            <a href="inventory.html" class="action-card">
+                <i class="fas fa-boxes"></i>
+                <h3>Manage Inventory</h3>
+                <p>View and update your available materials</p>
+            </a>
+            <a href="{{ url_for('brand_requests') }}" class="action-card">
+                <i class="fas fa-clipboard-list"></i>
+                <h3>Review Requests</h3>
+                <p>{{ pending_requests or 0 }} pending student requests</p>
+            </a>
+            <a href="{{ url_for('analytics')}}" class="action-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>View Analytics</h3>
+                <p>Track your impact metrics</p>
+            </a>
+            <a href="{{ url_for('add_material') }}" class="action-card">
+                <i class="fas fa-plus-circle"></i>
+                <h3>Add Materials</h3>
+                <p>List new deadstock items</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+        <!-- Recent Activity -->
+        <section class="brand-activity">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Recent Activity</h2>
+                    <a href="activity.html" class="view-all">View All</a>
+                </div>
+                <div class="activity-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon approved">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Request Approved</h3>
+                            <p>You approved 10 yards of silk to Fashion Institute student</p>
+                            <span class="timeline-date">Today, 10:30 AM</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon new">
+                            <i class="fas fa-exclamation"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>New Request Received</h3>
+                            <p>Design student requested your denim remnants</p>
+                            <span class="timeline-date">Yesterday, 3:45 PM</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon shipment">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Shipment Confirmed</h3>
+                            <p>Your cotton blend materials were received by Parsons School</p>
+                            <span class="timeline-date">Jun 12, 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inventory Summary -->
+        <section class="inventory-summary">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Your Inventory</h2>
+                    <a href="inventory.html" class="view-all">Manage All</a>
+                </div>
+                <div class="inventory-table">
+                    <div class="table-header">
+                        <div class="col-material">Material</div>
+                        <div class="col-quantity">Quantity</div>
+                        <div class="col-requests">Requests</div>
+                        <div class="col-status">Status</div>
+                    </div>
+                    {% if inventory_items %}
+                        {% for item in inventory_items %}
+                        <div class="table-row">
+                            <div class="col-material">
+                                <div class="material-info">
+                                    {% if item.image_url %}
+                                        <img src="{{ item.image_url }}" alt="{{ item.material_name }}">
+                                    {% else %}
+                                        <img src="https://images.unsplash.com/photo-1563170351-82e3809e0a6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60" alt="{{ item.material_name }}">
+                                    {% endif %}
+                                    <div>
+                                        <h4>{{ item.material_name }}</h4>
+                                        <span class="material-type">{{ item.material_type }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-quantity">{{ item.quantity }} {{ item.unit }}</div>
+                            <div class="col-requests">0 active</div>
+                            <div class="col-status {{ item.status }}">{{ item.status.title() }}</div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="table-row">
+                            <div class="col-material" style="text-align: center; padding: 20px;">
+                                <p>No materials listed yet. <a href="{{ url_for('add_material') }}">Add your first material</a></p>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Student Showcase -->
+        <section class="student-showcase">
+            <div class="container">
+                <h2 class="section-title">Designs Using Your Materials</h2>
+                <div class="showcase-grid">
+                    <div class="design-card">
+                        <div class="design-image">
+                            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Sustainable Dress Design">
+                            <div class="design-overlay">
+                                <button class="btn btn-small">View Details</button>
+                            </div>
+                        </div>
+                        <div class="design-info">
+                            <h3>Zero-Waste Evening Dress</h3>
+                            <p class="designer">By: Maria Chen, Parsons School</p>
+                            <p class="materials-used">Materials: Your organic cotton + linen remnants</p>
+                        </div>
+                    </div>
+                    <div class="design-card">
+                        <div class="design-image">
+                            <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Upcycled Jacket">
+                            <div class="design-overlay">
+                                <button class="btn btn-small">View Details</button>
+                            </div>
+                        </div>
+                        <div class="design-info">
+                            <h3>Upcycled Denim Jacket</h3>
+                            <p class="designer">By: Jamal Williams, FIT</p>
+                            <p class="materials-used">Materials: Your denim scraps</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a href="showcase.html" class="btn btn-outline">View All Designs</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sustainability Report -->
+        <section class="sustainability-report">
+            <div class="container">
+                <div class="report-card">
+                    <div class="report-content">
+                        <h2>Your Sustainability Report</h2>
+                        <p>See how your deadstock donations are making an impact and generating positive PR for your brand.</p>
+                        <ul class="report-stats">
+                            <li>
+                                <i class="fas fa-tint"></i>
+                                <span>12,500 gallons of water saved</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-cloud"></i>
+                                <span>850 kg CO2 emissions avoided</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-newspaper"></i>
+                                <span>Featured in 3 sustainability articles</span>
+                            </li>
+                        </ul>
+                        <button class="btn">Download Full Report</button>
+                    </div>
+                    <div class="report-image">
+                        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Sustainable fabrics">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (same as landing page) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="/templates/landing.html">Re-Threads</a>
+                    <p>Sustainable fashion through creative reuse</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/templates/landing.html">Home</a></li>
+                        <li><a href="/templates/landing.html#why-us">Why Us?</a></li>
+                        <li><a href="/templates/landing.html#for-students">For Students</a></li>
+                        <li><a href="/templates/landing.html#for-brands">For Brands</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Re-Threads. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
